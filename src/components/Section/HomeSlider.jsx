@@ -5,7 +5,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import HeroImage from '../../../public/images/hero.svg';
 
 import Hero from './Hero';
-const HomeSlider = () => {
+const HomeSlider = ({ img }) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -18,27 +18,27 @@ const HomeSlider = () => {
       <Hero
         title="Lorem Ipsum is simply dummy text of the printing"
         description="If you take even a few minutes to consider exactly how long a meeting should take, you could save critical time on the day of millions of years are being intentional the appointment."
-        featureImage={HeroImage}
+        featureImage={img}
       />
       <Hero
         title="Lorem Ipsum is simply dummy text of the printing"
         description="If you take even a few minutes to consider exactly how long a meeting should take, you could save critical time on the day of millions of years are being intentional the appointment."
-        featureImage={HeroImage}
+        featureImage={img}
       />
       <Hero
         title="Lorem Ipsum is simply dummy text of the printing"
         description="If you take even a few minutes to consider exactly how long a meeting should take, you could save critical time on the day of millions of years are being intentional the appointment."
-        featureImage={HeroImage}
+        featureImage={img}
       />
       <Hero
         title="Lorem Ipsum is simply dummy text of the printing"
         description="If you take even a few minutes to consider exactly how long a meeting should take, you could save critical time on the day of millions of years are being intentional the appointment."
-        featureImage={HeroImage}
+        featureImage={img}
       />
       <Hero
         title="Lorem Ipsum is simply dummy text of the printing"
         description="If you take even a few minutes to consider exactly how long a meeting should take, you could save critical time on the day of millions of years are being intentional the appointment."
-        featureImage={HeroImage}
+        featureImage={img}
       />
     </Slider>
   );
