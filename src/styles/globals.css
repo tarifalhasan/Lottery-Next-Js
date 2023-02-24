@@ -21,7 +21,7 @@ body {
   @apply text-lg font-medium  uppercase text-[#434648] mb-5;
 }
 .footer-link {
-  @apply self-center text-base font-normal text-[#434648];
+  @apply self-center text-[0.900em] font-normal text-[#434648];
 }
 .hero-gradient {
   background: linear-gradient(
@@ -59,7 +59,7 @@ body {
 }
 
 .timer-box {
-  @apply flex justify-center text-2xl font-semibold text-[#434648] items-center w-16 h-16 md:w-28 md:h-28 rounded-full mb-3 border border-[#1F95D5];
+  @apply flex justify-center text-2xl font-semibold text-[#434648] items-center w-16 h-16 md:w-20 md:h-20 rounded-full mb-3 border border-[#1F95D5];
 }
 .timer-hour {
   @apply text-lg md:text-2xl font-semibold text-[#434648] text-center flex justify-center;

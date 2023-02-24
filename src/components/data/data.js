@@ -5,7 +5,7 @@ export const navLinks = [
   },
   {
     name: 'Campaigns',
-    link: '/#campaigns',
+    link: '/campaigns',
   },
   {
     name: 'Winners',

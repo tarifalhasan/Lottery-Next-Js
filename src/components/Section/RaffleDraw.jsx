@@ -1,8 +1,8 @@
 const RaffleDraw = () => {
   return (
-    <div className="w-full max-w-[950px] mx-auto relative mb-60 md:mb-80  lg:mb-40 ">
-      <div className="absolute -top-40 z-40 inset-x-4 px-4 sm:px-10 bg-white shadow-lg lg:shadow-2xl rounded-xl py-5">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+    <div className="w-full max-w-[1000px] mx-auto relative  ">
+      <div className=" z-40 px-4 sm:px-10 bg-white shadow-lg lg:shadow-2xl rounded-xl py-8">
+        <div className="grid grid-cols-1 place-items-center lg:grid-cols-3 gap-4">
           <div>
             <h2 className="text-[#434648] text-center md:text-left text-4xl font-semibold mb-4">
               Raffle Draw
@@ -14,7 +14,7 @@ const RaffleDraw = () => {
               </span>
             </p>
 
-            <button className=" hidden lg:flex justify-center w-full max-w-[163px] py-3.5 rounded-full bg-[#01A8FF] btn-shadow text-white">
+            <button className=" hidden lg:flex justify-center w-full max-w-[163px] py-3.5 px-5 rounded-full bg-[#01A8FF] btn-shadow text-white">
               Play Now
             </button>
           </div>
@@ -39,7 +39,7 @@ const RaffleDraw = () => {
             </div>
           </div>
           <div className="flex justify-center md:justify-start">
-            <button className=" lg:hidden flex justify-center w-full max-w-[163px] py-3.5 rounded-full bg-[#01A8FF] btn-shadow text-white">
+            <button className=" lg:hidden flex justify-center px-5 py-3.5 rounded-full bg-[#01A8FF] btn-shadow text-white">
               Play Now
             </button>
           </div>
