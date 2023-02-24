@@ -9,7 +9,7 @@ const WhyUs = () => {
     <>
       <HomeSlider />
       <HowPlay />
-      <Campaigns />
+      <Campaigns bg={'bg-bgCyan'} />
       <WhyChooseUs />
     </>
   );

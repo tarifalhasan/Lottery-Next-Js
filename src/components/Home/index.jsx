@@ -13,7 +13,7 @@ const Home = () => {
     <>
       <Hero />
       <RaffleDraw />
-      <Campaigns />
+      <Campaigns bg={'bg-transparent'} btnHide="hidden" />
       <Banner />
       <LiveCampaigns />
       <Winners />

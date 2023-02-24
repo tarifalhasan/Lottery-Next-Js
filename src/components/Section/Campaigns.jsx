@@ -7,7 +7,7 @@ import Image from 'next/image';
 import AddToCartBtn from '../ui/AddToCartBtn';
 import AwesomeButton from '../ui/Button';
 
-const Campaigns = () => {
+const Campaigns = ({ bg, btnHide }) => {
   const dispatch = useDispatch();
 
   const handleAddToCart = item => {
@@ -15,7 +15,7 @@ const Campaigns = () => {
   };
 
   return (
-    <div className="w-full bg" id="compaigns">
+    <div className={`w-full ${bg} `} id="compaigns">
       <div className="main-container pt-20 ">
         <h1 className="text-[#fff] text-[32px] md:text-[48px] font-semibold text-center mb-6">
           Campaigns Ending Soon
@@ -25,7 +25,7 @@ const Campaigns = () => {
             return (
               <div
                 key={index}
-                className="card-shoadow bg-[#F6F7F9] p-6 rounded-lg"
+                className="card-shoadow bg-[#fff] p-6 rounded-lg"
               >
                 <div className=" relative mb-5 flex rounded-lg justify-center">
                   <div className="absolute -top-[25px] -left-4  lg:block">
@@ -67,7 +67,7 @@ const Campaigns = () => {
         </div>
 
         <div className="flex item-center pt-7 pb-20 justify-center">
-          <AwesomeButton />
+          <AwesomeButton display={btnHide} />
         </div>
       </div>
     </div>

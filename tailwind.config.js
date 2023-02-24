@@ -12,6 +12,7 @@ module.exports = {
     extend: {
       colors: {
         border: 'rgba(67, 70, 72, 0.6)',
+        bgCyan: 'rgba(0, 133, 255, 0.4)',
       },
       fontSize: {
         sm: ['1.2rem'],

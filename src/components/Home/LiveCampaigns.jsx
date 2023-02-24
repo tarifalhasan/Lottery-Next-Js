@@ -122,7 +122,7 @@ const LiveCampaigns = () => {
                     <div className="flex self-end items-end h-full gap-x-7 ">
                       <div className="border flex justify-between  border-[#01A8FF] rounded-lg px-2 py-1.5">
                         <div className="flex self-center">
-                          <span className=" text-sm font-bold min-w-[120px]">
+                          <span className=" text-[0.850em] font-bold min-w-[120px]">
                             Campaign Ends{' '}
                           </span>
                         </div>
