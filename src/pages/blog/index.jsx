@@ -18,7 +18,7 @@ const BlogPage = () => {
     }
     fetchPosts();
   }, []);
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <p>Loading.........</p>;
   if (!posts) return <p>No profile data</p>;
 
   return (
