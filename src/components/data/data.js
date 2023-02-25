@@ -68,3 +68,47 @@ export const faq = {
     },
   ],
 };
+
+import visa from '@/../public/images/visa.svg';
+import master from '@/../public/images/mastercard.svg';
+import amex from '@/../public/images/amex2.svg';
+// billing information
+export const billingInfo = {
+  carts: [
+    {
+      name: 'Visa ending in 1250',
+      Expire: 'Expire 05/2024',
+      id: '1',
+      image: visa,
+    },
+    {
+      name: 'Amex ending in 1250',
+      Expire: 'Expire 05/2024',
+      id: '2',
+      image: amex,
+    },
+    {
+      name: 'Master ending in 1250',
+      Expire: 'Expire 05/2024',
+      id: '3',
+      image: master,
+    },
+  ],
+  table: [
+    {
+      Prize: 'United State Powerball ',
+      Cost: '50,00$',
+      Date: '13 Dec 2023',
+    },
+    {
+      Prize: 'United State Powerball ',
+      Cost: '50,00$',
+      Date: '13 Dec 2023',
+    },
+    {
+      Prize: 'United State Powerball ',
+      Cost: '50,00$',
+      Date: '13 Dec 2023',
+    },
+  ],
+};
