@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Navigation from './Navigation';
 import vector from '@/../public/images/Profile.svg';
 import { BsFillCheckCircleFill } from 'react-icons/bs';
+import Input from '@/components/ui/Input';
 const Account = () => {
   return (
     <section className="main-container px-0 lg:px-16">
@@ -26,55 +27,20 @@ const Account = () => {
           <div className="col-span-7 px-5 lg:px-10 mt-16">
             <form action="post">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <input
-                  type="text"
-                  name="frist_name"
-                  placeholder="First Name"
-                  className="bg-[#F6F6F6] block outline-none py-4 lg:py-3 pl-3 pr-10  rounded-[5px] text-[#1F272D] text-[1em]"
-                />
-                <input
-                  type="text"
-                  name="Address"
-                  placeholder="Address"
-                  className="bg-[#F6F6F6] block outline-none py-4 lg:py-3 pl-3 pr-10  rounded-[5px] text-[#1F272D] text-[1em]"
-                  required
-                />
-                <input
-                  type="text"
-                  name="Last Name"
-                  placeholder="Last Name"
-                  className="bg-[#F6F6F6] block outline-none py-4 lg:py-3 pl-3 pr-10  rounded-[5px] text-[#1F272D] text-[1em]"
-                  required
-                />
+                <Input name="frist_name" type="text" placeholder="First Name" />
 
-                <input
-                  type="text"
-                  name="town"
-                  placeholder="Town"
-                  className="bg-[#F6F6F6] block outline-none py-4 lg:py-3 pl-3 pr-10  rounded-[5px] text-[#1F272D] text-[1em]"
-                  required
-                />
-                <input
-                  type="email"
-                  name="Email"
-                  placeholder="Email"
-                  className="bg-[#F6F6F6] block outline-none py-4 lg:py-3 pl-3 pr-10  rounded-[5px] text-[#1F272D] text-[1em]"
-                  required
-                />
-                <input
-                  type="text"
-                  name="postcode"
-                  placeholder="Postcode"
-                  className="bg-[#F6F6F6] block outline-none py-4 lg:py-3 pl-3 pr-10  rounded-[5px] text-[#1F272D] text-[1em]"
-                  required
-                />
-                <input
-                  type="password"
-                  name="Password"
-                  placeholder="Password"
-                  className="bg-[#F6F6F6] block outline-none py-4 lg:py-3 pl-3 pr-10  rounded-[5px] text-[#1F272D] text-[1em]"
-                  required
-                />
+                <Input name="Address" type="text" placeholder="Address" />
+
+                <Input name="Last Name" type="text" placeholder="Last Name" />
+
+                <Input name="town" type="text" placeholder="Town" />
+
+                <Input name="Email" type="email" placeholder="Email" />
+
+                <Input name="postcode" type="text" placeholder="Postcode" />
+
+                <Input name="password" type="password" placeholder="Password" />
+
                 <ul className="flex flex-row md:flex-col gap-2">
                   <li className="flex items-center gap-2">
                     <BsFillCheckCircleFill

@@ -65,7 +65,7 @@ const Carts = () => {
           </div>
         </div>
       ))}
-      <div className="flex py-3 justify-end md:justify-center lg:justify-end">
+      <div className="flex py-3 justify-end md:justify-center lg:justify-start">
         <button className="add_new_cart_btn px-6 py-3 flex items-center justify-center">
           <BsPlus size={20} />
           Add New Card
