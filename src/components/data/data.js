@@ -7,10 +7,7 @@ export const navLinks = [
     name: 'Campaigns',
     link: '/campaigns',
   },
-  {
-    name: 'Winners',
-    link: '/#winners',
-  },
+
   {
     name: 'Why Us',
     link: '/WhyUs',
@@ -20,319 +17,54 @@ export const navLinks = [
     link: '/blog',
   },
 ];
-import blogImage from '@/../public/images/blog.svg';
 
-// get dynamic date format
-
-// Create a new Date object
-const date = new Date();
-
-// Define an array of month names
-const months = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December',
-];
-
-// Extract the month, day, and year from the Date object
-const month = months[date.getMonth()];
-const day = date.getDate();
-const year = date.getFullYear();
-
-// Combine the parts into a formatted date string
-const formattedDate = `${month} ${day}, ${year}`;
-
-// Output the formatted date
-console.log(formattedDate);
-export const blogPost = [
-  {
-    title: 'How to Write a Great Resume for a Job in 2022',
-    featuresImage: blogImage,
-    slug: 'how-to-write-a-great-resume-for-a-job-in-thirty-days',
-    shortDescription:
-      'There are many variation an passage of Lorem Ipsum form by injected humour a randomised words which don look even slightly believable.',
-    publishedDate: formattedDate,
-    details: [
-      {
-        title: 'How to Write a Great Resume for a Job in 2022',
-        description: `<p>He shared how it was easy to improvise or adapt to circumstances during in-person meetings, but nowaday you must plan ahead for that usually results in the best ideas & remote forced us spontaneous communication to be even more clear. communication cues that have developed over When planning your meetings, millions it can be tempting to arbitrarily set them for 30 minutes or an hour. But there’s merit in being more precise with your scheduling. If you take even a few minutes to consider exactly how long a meeting should take, you could save critical time on the day of millions of years are being intentional the appointment. <br/>Intentional remote meetings and building trust with clients is all about communication, but not communication. It’s about being intentional. When human communication cues that have developed over millions of years are being intentional Go way beyond the small talk on calls to go deeper with clients. In this article, we are going to explore the following types of resume :
-       </p>
-
-     <ul className="flex items-center">
-        <li>Traditional</li>
-        <li>Entry-level</li>
-        <li>Interview-level</li>
-        <li>Full-time</li>
-        <li>Part-time</li>
-        <li>Internship</li>
-        <li>Other</li> 
-    </ul>
-`,
-      },
-      {
-        title: 'How to Make a Perfect Resume - Step-by-Step Guide:',
-        description: `
-           <p>He shared how it was easy to improvise or adapt to circumstances during in-person meetings, but nowaday you must plan ahead for that spontaneous communication that usually results in the best ideas & remote forced us to be even more clear. communication cues that have developed over millions  When planning your meetings, it can be tempting to arbitrarily set them for 30 minutes or an hour. But there’s merit in being more precise with your scheduling. If you take even a few minutes to consider exactly how long a meeting should take, you could save critical time on the day of the appointment. <br />
-
-           Intentional remote meetings and building trust with clients is all about communication, but not communication. It’s about being intentional. When human communication cues that have developed over millions of years are being intentionalGo way beyond the small talk on calls to go deeper with clients. You need to be intentional about getting to know them on a personal level.
-           </p>
-        `,
-      },
-    ],
-  },
-  {
-    title: 'How to Write a Great Resume for a Job in 2022',
-    featuresImage: blogImage,
-    slug: 'how-to-write-a-great-resume-for-a-job-in-thirty-days',
-    shortDescription:
-      'There are many variation an passage of Lorem Ipsum form by injected humour a randomised words which don look even slightly believable.',
-    publishedDate: formattedDate,
-    details: [
-      {
-        title: 'How to Write a Great Resume for a Job in 2022',
-        description: `<p>He shared how it was easy to improvise or adapt to circumstances during in-person meetings, but nowaday you must plan ahead for that usually results in the best ideas & remote forced us spontaneous communication to be even more clear. communication cues that have developed over When planning your meetings, millions it can be tempting to arbitrarily set them for 30 minutes or an hour. But there’s merit in being more precise with your scheduling. If you take even a few minutes to consider exactly how long a meeting should take, you could save critical time on the day of millions of years are being intentional the appointment. <br/>Intentional remote meetings and building trust with clients is all about communication, but not communication. It’s about being intentional. When human communication cues that have developed over millions of years are being intentional Go way beyond the small talk on calls to go deeper with clients. In this article, we are going to explore the following types of resume :
-       </p>
-
-     <ul className="flex items-center">
-        <li>Traditional</li>
-        <li>Entry-level</li>
-        <li>Interview-level</li>
-        <li>Full-time</li>
-        <li>Part-time</li>
-        <li>Internship</li>
-        <li>Other</li> 
-    </ul>
-`,
-      },
-      {
-        title: 'How to Make a Perfect Resume - Step-by-Step Guide:',
-        description: `
-           <p>He shared how it was easy to improvise or adapt to circumstances during in-person meetings, but nowaday you must plan ahead for that spontaneous communication that usually results in the best ideas & remote forced us to be even more clear. communication cues that have developed over millions  When planning your meetings, it can be tempting to arbitrarily set them for 30 minutes or an hour. But there’s merit in being more precise with your scheduling. If you take even a few minutes to consider exactly how long a meeting should take, you could save critical time on the day of the appointment. <br />
-
-           Intentional remote meetings and building trust with clients is all about communication, but not communication. It’s about being intentional. When human communication cues that have developed over millions of years are being intentionalGo way beyond the small talk on calls to go deeper with clients. You need to be intentional about getting to know them on a personal level.
-           </p>
-        `,
-      },
-    ],
-  },
-  {
-    title: 'How to Write a Great Resume for a Job in 2022',
-    featuresImage: blogImage,
-    slug: 'how-to-write-a-great-resume-for-a-job-in-thirty-days',
-    shortDescription:
-      'There are many variation an passage of Lorem Ipsum form by injected humour a randomised words which don look even slightly believable.',
-    publishedDate: formattedDate,
-    details: [
-      {
-        title: 'How to Write a Great Resume for a Job in 2022',
-        description: `<p>He shared how it was easy to improvise or adapt to circumstances during in-person meetings, but nowaday you must plan ahead for that usually results in the best ideas & remote forced us spontaneous communication to be even more clear. communication cues that have developed over When planning your meetings, millions it can be tempting to arbitrarily set them for 30 minutes or an hour. But there’s merit in being more precise with your scheduling. If you take even a few minutes to consider exactly how long a meeting should take, you could save critical time on the day of millions of years are being intentional the appointment. <br/>Intentional remote meetings and building trust with clients is all about communication, but not communication. It’s about being intentional. When human communication cues that have developed over millions of years are being intentional Go way beyond the small talk on calls to go deeper with clients. In this article, we are going to explore the following types of resume :
-       </p>
-
-     <ul className="flex items-center">
-        <li>Traditional</li>
-        <li>Entry-level</li>
-        <li>Interview-level</li>
-        <li>Full-time</li>
-        <li>Part-time</li>
-        <li>Internship</li>
-        <li>Other</li> 
-    </ul>
-`,
-      },
-      {
-        title: 'How to Make a Perfect Resume - Step-by-Step Guide:',
-        description: `
-           <p>He shared how it was easy to improvise or adapt to circumstances during in-person meetings, but nowaday you must plan ahead for that spontaneous communication that usually results in the best ideas & remote forced us to be even more clear. communication cues that have developed over millions  When planning your meetings, it can be tempting to arbitrarily set them for 30 minutes or an hour. But there’s merit in being more precise with your scheduling. If you take even a few minutes to consider exactly how long a meeting should take, you could save critical time on the day of the appointment. <br />
-
-           Intentional remote meetings and building trust with clients is all about communication, but not communication. It’s about being intentional. When human communication cues that have developed over millions of years are being intentionalGo way beyond the small talk on calls to go deeper with clients. You need to be intentional about getting to know them on a personal level.
-           </p>
-        `,
-      },
-    ],
-  },
-  {
-    title: 'How to Write a Great Resume for a Job in 2022',
-    featuresImage: blogImage,
-    slug: 'how-to-write-a-great-resume-for-a-job-in-thirty-days',
-    shortDescription:
-      'There are many variation an passage of Lorem Ipsum form by injected humour a randomised words which don look even slightly believable.',
-    publishedDate: formattedDate,
-    details: [
-      {
-        title: 'How to Write a Great Resume for a Job in 2022',
-        description: `<p>He shared how it was easy to improvise or adapt to circumstances during in-person meetings, but nowaday you must plan ahead for that usually results in the best ideas & remote forced us spontaneous communication to be even more clear. communication cues that have developed over When planning your meetings, millions it can be tempting to arbitrarily set them for 30 minutes or an hour. But there’s merit in being more precise with your scheduling. If you take even a few minutes to consider exactly how long a meeting should take, you could save critical time on the day of millions of years are being intentional the appointment. <br/>Intentional remote meetings and building trust with clients is all about communication, but not communication. It’s about being intentional. When human communication cues that have developed over millions of years are being intentional Go way beyond the small talk on calls to go deeper with clients. In this article, we are going to explore the following types of resume :
-       </p>
-
-     <ul className="flex items-center">
-        <li>Traditional</li>
-        <li>Entry-level</li>
-        <li>Interview-level</li>
-        <li>Full-time</li>
-        <li>Part-time</li>
-        <li>Internship</li>
-        <li>Other</li> 
-    </ul>
-`,
-      },
-      {
-        title: 'How to Make a Perfect Resume - Step-by-Step Guide:',
-        description: `
-           <p>He shared how it was easy to improvise or adapt to circumstances during in-person meetings, but nowaday you must plan ahead for that spontaneous communication that usually results in the best ideas & remote forced us to be even more clear. communication cues that have developed over millions  When planning your meetings, it can be tempting to arbitrarily set them for 30 minutes or an hour. But there’s merit in being more precise with your scheduling. If you take even a few minutes to consider exactly how long a meeting should take, you could save critical time on the day of the appointment. <br />
-
-           Intentional remote meetings and building trust with clients is all about communication, but not communication. It’s about being intentional. When human communication cues that have developed over millions of years are being intentionalGo way beyond the small talk on calls to go deeper with clients. You need to be intentional about getting to know them on a personal level.
-           </p>
-        `,
-      },
-    ],
-  },
-  {
-    title: 'How to Write a Great Resume for a Job in 2022',
-    featuresImage: blogImage,
-    slug: 'how-to-write-a-great-resume-for-a-job-in-thirty-days',
-    shortDescription:
-      'There are many variation an passage of Lorem Ipsum form by injected humour a randomised words which don look even slightly believable.',
-    publishedDate: formattedDate,
-    details: [
-      {
-        title: 'How to Write a Great Resume for a Job in 2022',
-        description: `<p>He shared how it was easy to improvise or adapt to circumstances during in-person meetings, but nowaday you must plan ahead for that usually results in the best ideas & remote forced us spontaneous communication to be even more clear. communication cues that have developed over When planning your meetings, millions it can be tempting to arbitrarily set them for 30 minutes or an hour. But there’s merit in being more precise with your scheduling. If you take even a few minutes to consider exactly how long a meeting should take, you could save critical time on the day of millions of years are being intentional the appointment. <br/>Intentional remote meetings and building trust with clients is all about communication, but not communication. It’s about being intentional. When human communication cues that have developed over millions of years are being intentional Go way beyond the small talk on calls to go deeper with clients. In this article, we are going to explore the following types of resume :
-       </p>
-
-     <ul className="flex items-center">
-        <li>Traditional</li>
-        <li>Entry-level</li>
-        <li>Interview-level</li>
-        <li>Full-time</li>
-        <li>Part-time</li>
-        <li>Internship</li>
-        <li>Other</li> 
-    </ul>
-`,
-      },
-      {
-        title: 'How to Make a Perfect Resume - Step-by-Step Guide:',
-        description: `
-           <p>He shared how it was easy to improvise or adapt to circumstances during in-person meetings, but nowaday you must plan ahead for that spontaneous communication that usually results in the best ideas & remote forced us to be even more clear. communication cues that have developed over millions  When planning your meetings, it can be tempting to arbitrarily set them for 30 minutes or an hour. But there’s merit in being more precise with your scheduling. If you take even a few minutes to consider exactly how long a meeting should take, you could save critical time on the day of the appointment. <br />
-
-           Intentional remote meetings and building trust with clients is all about communication, but not communication. It’s about being intentional. When human communication cues that have developed over millions of years are being intentionalGo way beyond the small talk on calls to go deeper with clients. You need to be intentional about getting to know them on a personal level.
-           </p>
-        `,
-      },
-    ],
-  },
-  {
-    title: 'How to Write a Great Resume for a Job in 2022',
-    featuresImage: blogImage,
-    slug: 'how-to-write-a-great-resume-for-a-job-in-thirty-days',
-    shortDescription:
-      'There are many variation an passage of Lorem Ipsum form by injected humour a randomised words which don look even slightly believable.',
-    publishedDate: formattedDate,
-    details: [
-      {
-        title: 'How to Write a Great Resume for a Job in 2022',
-        description: `<p>He shared how it was easy to improvise or adapt to circumstances during in-person meetings, but nowaday you must plan ahead for that usually results in the best ideas & remote forced us spontaneous communication to be even more clear. communication cues that have developed over When planning your meetings, millions it can be tempting to arbitrarily set them for 30 minutes or an hour. But there’s merit in being more precise with your scheduling. If you take even a few minutes to consider exactly how long a meeting should take, you could save critical time on the day of millions of years are being intentional the appointment. <br/>Intentional remote meetings and building trust with clients is all about communication, but not communication. It’s about being intentional. When human communication cues that have developed over millions of years are being intentional Go way beyond the small talk on calls to go deeper with clients. In this article, we are going to explore the following types of resume :
-       </p>
-
-     <ul className="flex items-center">
-        <li>Traditional</li>
-        <li>Entry-level</li>
-        <li>Interview-level</li>
-        <li>Full-time</li>
-        <li>Part-time</li>
-        <li>Internship</li>
-        <li>Other</li> 
-    </ul>
-`,
-      },
-      {
-        title: 'How to Make a Perfect Resume - Step-by-Step Guide:',
-        description: `
-           <p>He shared how it was easy to improvise or adapt to circumstances during in-person meetings, but nowaday you must plan ahead for that spontaneous communication that usually results in the best ideas & remote forced us to be even more clear. communication cues that have developed over millions  When planning your meetings, it can be tempting to arbitrarily set them for 30 minutes or an hour. But there’s merit in being more precise with your scheduling. If you take even a few minutes to consider exactly how long a meeting should take, you could save critical time on the day of the appointment. <br />
-
-           Intentional remote meetings and building trust with clients is all about communication, but not communication. It’s about being intentional. When human communication cues that have developed over millions of years are being intentionalGo way beyond the small talk on calls to go deeper with clients. You need to be intentional about getting to know them on a personal level.
-           </p>
-        `,
-      },
-    ],
-  },
-  {
-    title: 'How to Write a Great Resume for a Job in 2022',
-    featuresImage: blogImage,
-    slug: 'how-to-write-a-great-resume-for-a-job-in-thirty-days',
-    shortDescription:
-      'There are many variation an passage of Lorem Ipsum form by injected humour a randomised words which don look even slightly believable.',
-    publishedDate: formattedDate,
-    details: [
-      {
-        title: 'How to Write a Great Resume for a Job in 2022',
-        description: `<p>He shared how it was easy to improvise or adapt to circumstances during in-person meetings, but nowaday you must plan ahead for that usually results in the best ideas & remote forced us spontaneous communication to be even more clear. communication cues that have developed over When planning your meetings, millions it can be tempting to arbitrarily set them for 30 minutes or an hour. But there’s merit in being more precise with your scheduling. If you take even a few minutes to consider exactly how long a meeting should take, you could save critical time on the day of millions of years are being intentional the appointment. <br/>Intentional remote meetings and building trust with clients is all about communication, but not communication. It’s about being intentional. When human communication cues that have developed over millions of years are being intentional Go way beyond the small talk on calls to go deeper with clients. In this article, we are going to explore the following types of resume :
-       </p>
-
-     <ul className="flex items-center">
-        <li>Traditional</li>
-        <li>Entry-level</li>
-        <li>Interview-level</li>
-        <li>Full-time</li>
-        <li>Part-time</li>
-        <li>Internship</li>
-        <li>Other</li> 
-    </ul>
-`,
-      },
-      {
-        title: 'How to Make a Perfect Resume - Step-by-Step Guide:',
-        description: `
-           <p>He shared how it was easy to improvise or adapt to circumstances during in-person meetings, but nowaday you must plan ahead for that spontaneous communication that usually results in the best ideas & remote forced us to be even more clear. communication cues that have developed over millions  When planning your meetings, it can be tempting to arbitrarily set them for 30 minutes or an hour. But there’s merit in being more precise with your scheduling. If you take even a few minutes to consider exactly how long a meeting should take, you could save critical time on the day of the appointment. <br />
-
-           Intentional remote meetings and building trust with clients is all about communication, but not communication. It’s about being intentional. When human communication cues that have developed over millions of years are being intentionalGo way beyond the small talk on calls to go deeper with clients. You need to be intentional about getting to know them on a personal level.
-           </p>
-        `,
-      },
-    ],
-  },
-
-  {
-    title: 'How to Write a Great Resume for a Job in 2022',
-    featuresImage: blogImage,
-    slug: 'how-to-write-a-great-resume-for-a-job-in-thirty-days',
-    shortDescription:
-      'There are many variation an passage of Lorem Ipsum form by injected humour a randomised words which don look even slightly believable.',
-    publishedDate: formattedDate,
-    details: [
-      {
-        title: 'How to Write a Great Resume for a Job in 2022',
-        description: `<p>He shared how it was easy to improvise or adapt to circumstances during in-person meetings, but nowaday you must plan ahead for that usually results in the best ideas & remote forced us spontaneous communication to be even more clear. communication cues that have developed over When planning your meetings, millions it can be tempting to arbitrarily set them for 30 minutes or an hour. But there’s merit in being more precise with your scheduling. If you take even a few minutes to consider exactly how long a meeting should take, you could save critical time on the day of millions of years are being intentional the appointment. <br/>Intentional remote meetings and building trust with clients is all about communication, but not communication. It’s about being intentional. When human communication cues that have developed over millions of years are being intentional Go way beyond the small talk on calls to go deeper with clients. In this article, we are going to explore the following types of resume :
-       </p>
-
-     <ul className="flex items-center">
-        <li>Traditional</li>
-        <li>Entry-level</li>
-        <li>Interview-level</li>
-        <li>Full-time</li>
-        <li>Part-time</li>
-        <li>Internship</li>
-        <li>Other</li> 
-    </ul>
-`,
-      },
-      {
-        title: 'How to Make a Perfect Resume - Step-by-Step Guide:',
-        description: `
-           <p>He shared how it was easy to improvise or adapt to circumstances during in-person meetings, but nowaday you must plan ahead for that spontaneous communication that usually results in the best ideas & remote forced us to be even more clear. communication cues that have developed over millions  When planning your meetings, it can be tempting to arbitrarily set them for 30 minutes or an hour. But there’s merit in being more precise with your scheduling. If you take even a few minutes to consider exactly how long a meeting should take, you could save critical time on the day of the appointment. <br />
-
-           Intentional remote meetings and building trust with clients is all about communication, but not communication. It’s about being intentional. When human communication cues that have developed over millions of years are being intentionalGo way beyond the small talk on calls to go deeper with clients. You need to be intentional about getting to know them on a personal level.
-           </p>
-        `,
-      },
-    ],
-  },
-];
+export const faq = {
+  guarantee: [
+    {
+      title:
+        'Welcome to our raffle business, where every Sunday we announce the lucky winner on our YouTube live session. We take pride in our guarantees section, which ensures that our customers have a smooth and secure experience while participating in our raffle.',
+    },
+    {
+      title:
+        'Our raffle business is designed to provide everyone with an opportunity to win exciting prizes at an affordable price. We are committed to making our raffle accessible to everyone, and we ensure that the process is fair, transparent, and enjoyable.',
+    },
+    {
+      title:
+        'We believe in providing our customers with the best possible experience, which is why we have a dedicated guarantees section on our website. Our guarantees include secure payments, transparent rules and regulations, and timely delivery of prizes to the winners.',
+    },
+    {
+      title:
+        'We use a secure payment gateway to ensure that your financial information is protected. Our rules and regulations are transparent, and we make sure that all participants are aware of them before participating in the raffle. We also ensure that the winners receive their prizes in a timely manner, so that they can enjoy their winnings without any delay.',
+    },
+    {
+      title:
+        'At our raffle business, we understand the importance of trust and transparency. That is why we ensure that our customers have access to all the necessary information before participating in the raffle. We are committed to building long-term relationships with our customers, and we work hard to earn their trust and loyalty.',
+    },
+    {
+      title:
+        'At our raffle business, we understand the importance of trust and transparency. That is why we ensure that our customers have access to all the necessary information before participating in the raffle. We are committed to building long-term relationships with our customers, and we work hard to earn their trust and loyalty.',
+    },
+  ],
+  faq: [
+    {
+      question: `How do I participate in your raffle?`,
+      answer: `To participate in our raffle, you need to visit our website and select the prize you want to win. Once you have selected the prize, you can purchase as many tickets as you like. We will then announce the winner every Sunday on our YouTube live session.`,
+    },
+    {
+      question: 'How do I know if I have won?',
+      answer: `To participate in our raffle, you need to visit our website and select the prize you want to win. Once you have selected the prize, you can purchase as many tickets as you like. We will then announce the winner every Sunday on our YouTube live session.`,
+    },
+    {
+      question: 'Is it safe to provide my personal and financial information?',
+      answer: `To participate in our raffle, you need to visit our website and select the prize you want to win. Once you have selected the prize, you can purchase as many tickets as you like. We will then announce the winner every Sunday on our YouTube live session.`,
+    },
+    {
+      question: `How many tickets can I purchase?`,
+      answer: `To participate in our raffle, you need to visit our website and select the prize you want to win. Once you have selected the prize, you can purchase as many tickets as you like. We will then announce the winner every Sunday on our YouTube live session.`,
+    },
+    {
+      question: `What happens if I don't claim my prize?`,
+      answer: `To participate in our raffle, you need to visit our website and select the prize you want to win. Once you have selected the prize, you can purchase as many tickets as you like. We will then announce the winner every Sunday on our YouTube live session.`,
+    },
+  ],
+};

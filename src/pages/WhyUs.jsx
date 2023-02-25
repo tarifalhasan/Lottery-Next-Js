@@ -9,7 +9,7 @@ const WhyUs = () => {
     <>
       <HomeSlider img={whyUsImage} />
       <HowPlay />
-      <Campaigns bg={'bg-bgCyan'} />
+      <Campaigns btnBg="#fff" bg={'bg-bgCyan'} headingColor="text-[#fff]" />
       <WhyChooseUs />
     </>
   );

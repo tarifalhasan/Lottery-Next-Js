@@ -43,7 +43,7 @@ const Footer = () => {
             <div>
               <h2 className="footer-links-title">Company</h2>
               <div className="flex flex-col gap-5">
-                <Link href={'/'}>
+                <Link href={'/faq'}>
                   <span className="footer-link">FAQs</span>
                 </Link>
                 <Link href={'/'}>
