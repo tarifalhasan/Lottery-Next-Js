@@ -15,7 +15,7 @@ const Stripe = ({ theme, openItems, toggleItem }) => {
           >
             <div
               className={` w-4 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full h-4 mx-auto inset-0 ${
-                theme[2] ? 'bg-[#01A8FF]' : 'bg-transparent'
+                theme === 2 ? 'bg-[#01A8FF]' : 'bg-transparent'
               } `}
             ></div>
           </div>
@@ -32,7 +32,7 @@ const Stripe = ({ theme, openItems, toggleItem }) => {
       </div>
       {/* Collapse checkout */}
 
-      <div className={`py-4 ${openItems[2] ? 'block' : 'hidden'}`}>
+      <div className={`py-4 ${openItems === 2 ? 'block' : 'hidden'}`}>
         <form action="">
           {/* name and adress */}
           <div className=" lg:flex gap-4 gap-y-4 items-center">

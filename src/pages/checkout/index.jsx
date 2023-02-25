@@ -3,13 +3,16 @@ import OrderSmmary from './OrderSmmary';
 import Paypal from './Paypal';
 import Stripe from './Stripe';
 const Checkout = () => {
-  const [openItems, setOpenItems] = useState({});
-  const [theme, setTheme] = useState({});
+  const [selectedItem, setSelectedItem] = useState(null);
 
-  const toggleItem = index => {
-    setOpenItems({ [index]: !openItems[index] });
-    setTheme({ [index]: !theme[index] });
+  const handleItemClick = item => {
+    if (selectedItem === item) {
+      setSelectedItem(null);
+    } else {
+      setSelectedItem(item);
+    }
   };
+
   // Tarif
   return (
     <section className="main-container py-10">
@@ -20,10 +23,18 @@ const Checkout = () => {
             <div className="w-full border-dashed border border-[#8C9BA3] "></div>
           </div>
           {/* Paypal integration */}
-          <Paypal openItems={openItems} theme={theme} toggleItem={toggleItem} />
+          <Paypal
+            openItems={selectedItem}
+            theme={selectedItem}
+            toggleItem={handleItemClick}
+          />
           {/* stripe */}
           <div className="w-full border-dashed border my-4 border-[#8C9BA3] "></div>
-          <Stripe openItems={openItems} theme={theme} toggleItem={toggleItem} />
+          <Stripe
+            openItems={selectedItem}
+            theme={selectedItem}
+            toggleItem={handleItemClick}
+          />
           <div className="w-full border-dashed border my-4 border-[#8C9BA3] "></div>
           <div className="flex justify-between  gap-2">
             <input type="checkbox" className="w-5 h-5 block rounded-xl" />

@@ -14,7 +14,7 @@ const Paypal = ({ theme, openItems, toggleItem }) => {
           >
             <div
               className={` w-4 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full h-4 mx-auto inset-0 ${
-                theme[1] ? 'bg-[#01A8FF]' : 'bg-transparent'
+                theme === 1 ? 'bg-[#01A8FF]' : 'bg-transparent'
               } `}
             ></div>
           </div>
@@ -31,7 +31,7 @@ const Paypal = ({ theme, openItems, toggleItem }) => {
       </div>
       {/* Collapse checkout */}
 
-      <div className={`pt-2 ${openItems[1] ? 'block' : 'hidden'}`}>
+      <div className={`pt-2 ${openItems === 1 ? 'block' : 'hidden'}`}>
         <h2 className="text-base pr-5 text-[#202942CC] font-normal">
           To finish your purchase, click the PayPal button and log on to PayPal
           using your email and password.
