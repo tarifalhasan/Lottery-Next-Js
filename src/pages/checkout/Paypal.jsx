@@ -2,7 +2,6 @@ import Image from 'next/image';
 import paypalLogo from '@/../public/images/paypay1.svg';
 import paypalCheckout from '@/../public/images/paypal-ceckout.svg';
 const Paypal = ({ theme, openItems, toggleItem }) => {
-  console.log(theme[1], 'Paypal');
   return (
     <div className="bg-[rgb(245,247,250)] p-6 rounded-md">
       <div

@@ -1,4 +1,3 @@
-import React from 'react';
 import striptLogo from '@/../public/images/stripe_gateway.svg';
 import { BsFillCheckCircleFill } from 'react-icons/bs';
 import Input from '@/components/ui/Input';
