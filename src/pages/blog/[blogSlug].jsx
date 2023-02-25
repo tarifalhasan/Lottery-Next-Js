@@ -1,10 +1,13 @@
 import { useRouter } from 'next/router';
 import React, { useState, useEffect } from 'react';
 
-const blogSlug = () => {
-  // stop eslint next line
-  const [post, setPost] = useState(null);
+import { AiOutlineLink } from 'react-icons/ai';
+// stop eslint next line
+
+const SingleBlog = () => {
+  const [post, setPost] = useState();
   const [isLoading, setLoading] = useState(false);
+
   const router = useRouter();
   const { blogSlug } = router.query;
   useEffect(() => {
@@ -18,7 +21,6 @@ const blogSlug = () => {
     }
     fetchPosts();
   }, [blogSlug]);
-
   if (!isLoading) return <p>Loading...</p>;
   if (!post) return <p>Post not found</p>;
   else {
@@ -31,8 +33,11 @@ const blogSlug = () => {
           <div className="date">
             <p className="text-[#434648]">{post?.publishedDate}</p>
           </div>
-          <div>
+          <div className="flex items-center gap-x-2">
             <p className="text-[1.2em] text-[#434648]">Share</p>
+            <div className="flex items-center justify-center">
+              <AiOutlineLink />
+            </div>
           </div>
         </div>
       </div>
@@ -40,4 +45,4 @@ const blogSlug = () => {
   }
 };
 
-export default blogSlug;
+export default SingleBlog;

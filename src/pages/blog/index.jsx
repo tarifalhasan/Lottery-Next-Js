@@ -4,7 +4,7 @@ import { blogPost } from '@/components/data/data';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const blog = () => {
+const BlogPage = () => {
   const [posts, setPosts] = useState(null);
   const [isLoading, setLoading] = useState(true);
 
@@ -88,4 +88,4 @@ const blog = () => {
   );
 };
 
-export default blog;
+export default BlogPage;
