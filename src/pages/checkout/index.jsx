@@ -10,7 +10,7 @@ const Checkout = () => {
     setOpenItems({ [index]: !openItems[index] });
     setTheme({ [index]: !theme[index] });
   };
-
+  // Tarif
   return (
     <section className="main-container py-10">
       <div className="block gap-10 lg:flex ">
