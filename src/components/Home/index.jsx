@@ -27,7 +27,12 @@ const Home = () => {
     <>
       <Hero />
       <RaffleDraw />
-      <Campaigns bg={'bg-transparent'} data={Products} btnHide="hidden" />
+      <Campaigns
+        slugProduct="/products"
+        bg={'bg-transparent'}
+        data={Products}
+        btnHide="hidden"
+      />
       <Banner />
       <LiveCampaigns
         daysToAdd={getSigleDate}

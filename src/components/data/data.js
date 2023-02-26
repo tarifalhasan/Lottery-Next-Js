@@ -10,7 +10,7 @@ export const navLinks = [
 
   {
     name: 'Why Us',
-    link: '/WhyUs',
+    link: '/whyus',
   },
   {
     name: 'Blog',

@@ -5,7 +5,7 @@ import Image from 'next/image';
 import AddToCartBtn from '@/components/ui/AddToCartBtn';
 import AwesomeButton from '@/components/ui/Button';
 
-const Campaigns = ({ bg, btnHide, headingColor, btnBg, data }) => {
+const Campaigns = ({ bg, btnHide, headingColor, btnBg, data, slugProduct }) => {
   return (
     <div className={`w-full ${bg} `} id="compaigns">
       <div className="main-container pt-20 ">
@@ -38,7 +38,7 @@ const Campaigns = ({ bg, btnHide, headingColor, btnBg, data }) => {
                       </div>
                     </div>
                   </div>
-                  <Link href={`products/${item.slug}`}>
+                  <Link href={`${slugProduct}/${item.slug}`}>
                     <Image
                       src={item.productImage.src}
                       alt=""
@@ -54,7 +54,7 @@ const Campaigns = ({ bg, btnHide, headingColor, btnBg, data }) => {
                   </span>
                 </div>
                 <Link
-                  href={`products/${item.slug}`}
+                  href={`${slugProduct}/${item.slug}`}
                   className="text-xl text-[#464848] font-medium mb-4 block"
                 >
                   {item.title}
@@ -71,7 +71,7 @@ const Campaigns = ({ bg, btnHide, headingColor, btnBg, data }) => {
         </div>
 
         <div className={`flex   item-center pt-7 pb-20 justify-center`}>
-          <AwesomeButton btnBg={btnBg} display={btnHide} />
+          <Link href={'/'} className={`${btnBg} ${btnHide}`}></Link>
         </div>
       </div>
     </div>

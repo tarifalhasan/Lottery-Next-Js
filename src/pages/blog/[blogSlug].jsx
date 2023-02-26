@@ -23,7 +23,18 @@ const SingleBlog = () => {
     }
     fetchPosts();
   }, [blogSlug]);
-  if (!isLoading)
+  const [Products, setProducts] = useState(null);
+
+  useEffect(() => {
+    async function fetchProducts() {
+      const res = await fetch('/api/products');
+      const json = await res.json();
+      setProducts(json);
+      setLoading(false);
+    }
+    fetchProducts();
+  }, []);
+  if (isLoading)
     return (
       <p className="text-xl text-center text-green-800 py-5">Loading...</p>
     );
@@ -81,7 +92,12 @@ const SingleBlog = () => {
           ))}
         </div>
         {/* compaign */}
-        <Campaigns btnBg={'bg-[#01A8FF]'} headingColor="text-[#434648]" />
+        <Campaigns
+          data={Products}
+          btnBg={'bg-[#01A8FF]'}
+          headingColor="text-[#434648]"
+          slugProduct="/products"
+        />
       </div>
     );
   }

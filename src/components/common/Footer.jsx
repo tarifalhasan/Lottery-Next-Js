@@ -83,7 +83,7 @@ const Footer = () => {
                     1029 Finchley Road, London, NW117ES
                   </span>
                 </div>
-                <div className="flex gap-x-2">
+                <div className="flex flex-wrap gap-x-2">
                   <Image
                     src="/images/phone.svg"
                     alt=""
