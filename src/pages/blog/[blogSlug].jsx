@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Campaigns from '@/components/Section/Campaigns';
 import Link from 'next/link';
 import { AiOutlineLink } from 'react-icons/ai';

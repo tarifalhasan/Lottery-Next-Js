@@ -1,19 +1,11 @@
 import { useDispatch } from 'react-redux';
-import addToCart from '../../redux/cart/CartAction';
-
-import DesktopImage from '../../../public/images/desktop.jpg';
+import Link from 'next/link';
 import Image from 'next/image';
 
-import AddToCartBtn from '../ui/AddToCartBtn';
-import AwesomeButton from '../ui/Button';
+import AddToCartBtn from '@/components/ui/AddToCartBtn';
+import AwesomeButton from '@/components/ui/Button';
 
-const Campaigns = ({ bg, btnHide, headingColor, btnBg }) => {
-  const dispatch = useDispatch();
-
-  const handleAddToCart = item => {
-    dispatch(addToCart(item));
-  };
-
+const Campaigns = ({ bg, btnHide, headingColor, btnBg, data }) => {
   return (
     <div className={`w-full ${bg} `} id="compaigns">
       <div className="main-container pt-20 ">
@@ -23,7 +15,7 @@ const Campaigns = ({ bg, btnHide, headingColor, btnBg }) => {
           Campaigns Ending Soon
         </h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-4">
-          {data.map((item, index) => {
+          {data?.map((item, index) => {
             return (
               <div
                 key={index}
@@ -46,7 +38,14 @@ const Campaigns = ({ bg, btnHide, headingColor, btnBg }) => {
                       </div>
                     </div>
                   </div>
-                  <Image src={item.pic} alt="" />
+                  <Link href={`products/${item.slug}`}>
+                    <Image
+                      src={item.productImage.src}
+                      alt=""
+                      width={200}
+                      height={200}
+                    />
+                  </Link>
                 </div>
                 <div className="flex justify-between mb-5">
                   <Image src="/images/win.svg" alt="" width={25} height={20} />
@@ -54,9 +53,12 @@ const Campaigns = ({ bg, btnHide, headingColor, btnBg }) => {
                     Ends Today
                   </span>
                 </div>
-                <span className="text-xl text-[#464848] font-medium mb-4 block">
+                <Link
+                  href={`products/${item.slug}`}
+                  className="text-xl text-[#464848] font-medium mb-4 block"
+                >
                   {item.title}
-                </span>
+                </Link>
                 <h3 className="text-2xl text-center text-[#464848] font-semibold mb-8">
                   {item.price}
                 </h3>
@@ -77,30 +79,3 @@ const Campaigns = ({ bg, btnHide, headingColor, btnBg }) => {
 };
 
 export default Campaigns;
-
-const data = [
-  {
-    title: 'Apple macbook pro m2',
-    price: '$65.35',
-    buttonTitle: 'Add to Cart',
-    pic: DesktopImage,
-  },
-  {
-    title: 'Apple macbook pro m2',
-    price: '$65.35',
-    buttonTitle: 'Add to Cart',
-    pic: DesktopImage,
-  },
-  {
-    title: 'Apple macbook pro m2',
-    price: '$65.35',
-    buttonTitle: 'Add to Cart',
-    pic: DesktopImage,
-  },
-  {
-    title: 'Apple macbook pro m2',
-    price: '$65.35',
-    buttonTitle: 'Add to Cart',
-    pic: DesktopImage,
-  },
-];

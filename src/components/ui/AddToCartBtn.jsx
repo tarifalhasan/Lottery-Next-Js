@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-
-const AddToCartBtn = () => {
+import Link from 'next/link';
+const AddToCartBtn = item => {
   const [cardAdd, setCartAdd] = useState(false);
 
   const handleClick = () => {
