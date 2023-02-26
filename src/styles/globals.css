@@ -359,3 +359,7 @@ body {
   justify-content: center;
   width: 100%;
 }
+
+.button-grid button.selected {
+  background-color: red;
+}

@@ -41,14 +41,19 @@ const Campaigns = ({ bg, btnHide, headingColor, btnBg, data, slugProduct }) => {
                   <Link href={`${slugProduct}/${item.slug}`}>
                     <Image
                       src={item.productImage.src}
-                      alt=""
+                      alt={item.title}
                       width={200}
                       height={200}
                     />
                   </Link>
                 </div>
                 <div className="flex justify-between mb-5">
-                  <Image src="/images/win.svg" alt="" width={25} height={20} />
+                  <Image
+                    src="/images/win.svg"
+                    alt={item.title}
+                    width={25}
+                    height={20}
+                  />
                   <span className="flex justify-center items-center bg-[#FFEDF4] rounded-full font-semibold text-[0.9em] text-[#FF508F] px-6 py-0.5">
                     Ends Today
                   </span>
@@ -71,7 +76,7 @@ const Campaigns = ({ bg, btnHide, headingColor, btnBg, data, slugProduct }) => {
         </div>
 
         <div className={`flex   item-center pt-7 pb-20 justify-center`}>
-          <Link href={'/'} className={`${btnBg} ${btnHide}`}></Link>
+          <Link href={'/'} className={`${btnBg} ${btnHide} `}></Link>
         </div>
       </div>
     </div>

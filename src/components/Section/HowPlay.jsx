@@ -128,7 +128,7 @@ const HowPlay = () => {
         </div>
         <div className="vertical-line">
           <div className="flex justify-center mb-6">
-            <Image src={ResultIcon} alt="" />
+            <Image src={ResultIcon} alt="tarif" />
           </div>
           <div className="flex justify-center mb-4">
             <span className="flex justify-center px-4 rounded-md py-2.5  border border-[#01A8FF] text-lg font-medium">

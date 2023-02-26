@@ -26,7 +26,7 @@ const LiveCampaigns = ({ paddingTop, data, slugProduct }) => {
                     <Link href={`${slugProduct}/${item.slug}`}>
                       <Image
                         src={item.productImage.src}
-                        alt=""
+                        alt={item.title}
                         className="w-full object-center"
                         width={200}
                         height={200}
@@ -35,7 +35,7 @@ const LiveCampaigns = ({ paddingTop, data, slugProduct }) => {
                     <div className="absolute top-2 left-0">
                       <Image
                         src="/images/win-gaurantee.svg"
-                        alt=""
+                        alt={item.title}
                         width={40}
                         height={25}
                       />
@@ -44,7 +44,6 @@ const LiveCampaigns = ({ paddingTop, data, slugProduct }) => {
                   <div className=" order-3 lg:order-2 pt-10 lg:col-span-3 flex flex-col items-stretch self-stretch justify-between mt-10 lg:mt-0">
                     <span className="text-xl text-[#464848] font-semibold mb-4 lg:mb-8 block">
                       <Link href={`${slugProduct}/${item.slug}`}>
-                        {' '}
                         {item.title}
                       </Link>
                     </span>
@@ -96,7 +95,7 @@ const LiveCampaigns = ({ paddingTop, data, slugProduct }) => {
                         <div>
                           <Image
                             src={ShareIcon}
-                            alt=""
+                            alt={item.title}
                             width={30}
                             height={30}
                           />
@@ -113,13 +112,18 @@ const LiveCampaigns = ({ paddingTop, data, slugProduct }) => {
                         <div className="min-w-[30px]">
                           <Image
                             src={ShareIcon}
-                            alt=""
+                            alt={item.title}
                             width={30}
                             height={30}
                           />
                         </div>
                         <div className="min-w-[30px]">
-                          <Image src={LikeIcon} alt="" width={30} height={30} />
+                          <Image
+                            src={LikeIcon}
+                            alt={item.title}
+                            width={30}
+                            height={30}
+                          />
                         </div>
                       </div>
                     </div>

@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import LiveCampaigns from '@/components/Section/LiveCampaigns';
+import Ticket from '@/components/Section/Ticket';
 const SingleProduct = () => {
   const [Product, setProduct] = useState();
   const [Products, setProducts] = useState();
@@ -29,26 +30,30 @@ const SingleProduct = () => {
 
   return (
     <div className="main-container lg:px-10">
-      <div className="flex flex-col lg:flex-row gap-y-3 pt-10">
-        <div className="basis-[60%]">
+      <div className="flex flex-col items-center gap-4 lg:flex-row gap-y-3 pt-10">
+        <div className="basis-[50%]">
           <h2 className="text-[2.8em] leading-[190%] text-[#464848]">
             {Product?.title}
           </h2>
-          <div className="w-full lg:w-[65%]">
+          <div className="w-full lg:w-[70%]">
             <CampaignEnds daysToAdd={Product?.campaignEndDate} />
+          </div>
+
+          <div className="bg-[#01A8FF0D] rounded-xl p-6 mt-10">
+            <Ticket />
           </div>
           <div className="flex flex-col md:flex-row gap-5 mt-10 items-center">
             <NumberOfProduct price={Product?.price} />
             <AddToCartBtn />
           </div>
         </div>
-        <div className="bg-[#F6F6F6] basis-[40%] px-16 mt-10 rounded-[15px]">
+        <div className="bg-[#F6F6F6] basis-[50%]  pt-3 w-full px-4 lg:px-16 my-10 lg:mt-32 rounded-[15px]">
           <Image
             src={Product?.productImage.src}
             alt={Product?.title}
-            width={300}
-            height={300}
-            className="block mx-auto py-20"
+            width={400}
+            height={400}
+            className="block mx-auto py-16"
           />
         </div>
       </div>
