@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import LiveCampaigns from '@/components/Section/LiveCampaigns';
 import Ticket from '@/components/Section/Ticket';
-import { getProducts } from '@/lib/fetchData';
+import getProducts from '@/lib/api/products';
 import useFetcher from '@/lib/fetcher';
 
 const SingleProduct = ({ product }) => {

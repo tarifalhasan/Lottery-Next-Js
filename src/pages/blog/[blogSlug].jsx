@@ -1,7 +1,7 @@
 import Campaigns from '@/components/Section/Campaigns';
 import Link from 'next/link';
 import useFetcher from '@/lib/fetcher';
-import { getBlogs } from '@/lib/fetchData';
+import getBlogs from '@/lib/api/blogs';
 import { AiOutlineLink } from 'react-icons/ai';
 import { FaFacebookF, FaLinkedinIn } from 'react-icons/fa';
 import Spinner from '@/components/Section/Spinner';

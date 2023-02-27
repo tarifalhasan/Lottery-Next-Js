@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import RaffleDraw from '@/components/Section/RaffleDraw';
 
 import Image from 'next/image';
