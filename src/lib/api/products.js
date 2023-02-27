@@ -1,4 +1,4 @@
-const productUrl = 'http://localhost:3000/api/products';
+const productUrl = '/api/products';
 // hit url api/
 const getProducts = async slug => {
   const res = await fetch(`${productUrl}`);

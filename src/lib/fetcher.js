@@ -1,13 +1,10 @@
 import useSWR from 'swr';
 
-const BASEURL = 'http://localhost:3000';
+// const BASEURL = 'https://lottery-next-js.vercel.app/';
 const response = (...args) => fetch(...args).then(res => res.json());
 
 export default function useFetcher(endpoint) {
-  const { data, error, isLoading } = useSWR(
-    `${BASEURL}/api/${endpoint}`,
-    response
-  );
+  const { data, error, isLoading } = useSWR(`/api/${endpoint}`, response);
 
   return {
     data: data,

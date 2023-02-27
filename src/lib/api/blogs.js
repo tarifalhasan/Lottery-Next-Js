@@ -1,4 +1,4 @@
-const blogUrl = 'http://localhost:3000/api/blogs';
+const blogUrl = '/api/blogs';
 const getBlogs = async slug => {
   const res = await fetch(`${blogUrl}`);
   const post = await res.json();
