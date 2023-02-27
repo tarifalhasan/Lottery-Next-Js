@@ -1,6 +1,5 @@
-const blogUrl = '/api/blogs';
 const getBlogs = async slug => {
-  const res = await fetch(`${blogUrl}`);
+  const res = await fetch(`https://lottery-next-js.vercel.app/api/blog`);
   const post = await res.json();
 
   if (slug) {
