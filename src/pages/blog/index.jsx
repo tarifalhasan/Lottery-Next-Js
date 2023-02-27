@@ -1,25 +1,22 @@
 import { useState, useEffect } from 'react';
 import RaffleDraw from '@/components/Section/RaffleDraw';
-import { blogPost } from '@/components/data/data';
+
 import Image from 'next/image';
 import Link from 'next/link';
+import useFetcher from '@/lib/fetcher';
+import Spinner from '@/components/Section/Spinner';
+import Error from '@/components/common/404';
 
 const BlogPage = () => {
-  const [posts, setPosts] = useState(null);
-  const [isLoading, setLoading] = useState(true);
+  const { data, isLoading, isError } = useFetcher('blogs');
 
-  useEffect(() => {
-    setLoading(true);
-    async function fetchPosts() {
-      const res = await fetch('/api/blog');
-      const json = await res.json();
-      setPosts(json);
-      setLoading(false);
-    }
-    fetchPosts();
-  }, []);
-  if (isLoading) return <p>Loading.........</p>;
-  if (!posts) return <p>No profile data</p>;
+  if (isLoading) {
+    return <Spinner />;
+  }
+
+  if (isError) {
+    return <Error />;
+  }
 
   return (
     <section>
@@ -30,7 +27,7 @@ const BlogPage = () => {
       </div>
       <main className="main-container py-20">
         <div className="blog place-items-center gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-          {posts.map(blog => (
+          {data?.map(blog => (
             <div key={blog.slug}>
               <div className="features_image">
                 <Image

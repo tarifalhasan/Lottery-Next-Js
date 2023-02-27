@@ -1,21 +1,18 @@
 import LiveCampaigns from '@/components/Section/LiveCampaigns';
 import CampaignHero from '@/components/Section/CampaignHero';
-import { useState, useEffect } from 'react';
+import useFetcher from '@/lib/fetcher';
 const Campaigns = () => {
-  const [Products, setProducts] = useState(null);
-
-  useEffect(() => {
-    async function fetchProducts() {
-      const res = await fetch('/api/products');
-      const json = await res.json();
-      setProducts(json);
-    }
-    fetchProducts();
-  }, []);
+  const { data, isError, isLoading } = useFetcher('products');
   return (
     <>
       <CampaignHero />
-      <LiveCampaigns data={Products} paddingTop={'pt-24'} />
+      <LiveCampaigns
+        slugProduct="/products"
+        isLoading={isLoading}
+        isError={isError}
+        data={data}
+        paddingTop={'pt-24'}
+      />
     </>
   );
 };

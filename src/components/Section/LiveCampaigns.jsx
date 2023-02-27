@@ -6,8 +6,23 @@ import Link from 'next/link';
 import NumberOfProduct from '../ui/NumberOfProduct';
 
 import CampaignEnds from '../ui/CampaignEnds';
+import Spinner from './Spinner';
+import Error from '../common/404';
 
-const LiveCampaigns = ({ paddingTop, data, slugProduct }) => {
+const LiveCampaigns = ({
+  paddingTop,
+  data,
+  slugProduct,
+  isLoading,
+  isError,
+}) => {
+  if (isLoading) {
+    return <Spinner />;
+  }
+  if (isError) {
+    return <Error />;
+  }
+
   return (
     <div className={`w-full pb-10 ${paddingTop}`}>
       <div className="main-container ">

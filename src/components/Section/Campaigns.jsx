@@ -4,8 +4,26 @@ import Image from 'next/image';
 
 import AddToCartBtn from '@/components/ui/AddToCartBtn';
 import AwesomeButton from '@/components/ui/Button';
+import Spinner from './Spinner';
+import Error from '../common/404';
 
-const Campaigns = ({ bg, btnHide, headingColor, btnBg, data, slugProduct }) => {
+const Campaigns = ({
+  bg,
+  btnHide,
+  headingColor,
+  btnBg,
+  data,
+  slugProduct,
+  isLoading,
+  isError,
+}) => {
+  if (isLoading) {
+    return <Spinner />;
+  }
+  if (isError) {
+    return <Error />;
+  }
+
   return (
     <div className={`w-full ${bg} `} id="compaigns">
       <div className="main-container pt-20 ">
@@ -40,7 +58,7 @@ const Campaigns = ({ bg, btnHide, headingColor, btnBg, data, slugProduct }) => {
                   </div>
                   <Link href={`${slugProduct}/${item.slug}`}>
                     <Image
-                      src={item.productImage.src}
+                      src={item.productImage.src || '/'}
                       alt={item.title}
                       width={200}
                       height={200}
@@ -62,10 +80,10 @@ const Campaigns = ({ bg, btnHide, headingColor, btnBg, data, slugProduct }) => {
                   href={`${slugProduct}/${item.slug}`}
                   className="text-xl text-[#464848] font-medium mb-4 block"
                 >
-                  {item.title}
+                  {item.title || 'Unknown Product'}
                 </Link>
                 <h3 className="text-2xl text-center text-[#464848] font-semibold mb-8">
-                  {item.price}
+                  {item.price || 'Unknown Product'}
                 </h3>
                 <div className="flex items-center justify-center ">
                   <AddToCartBtn onClick={() => handleAddToCart(item)} />

@@ -1,44 +1,38 @@
-import { useState, useEffect } from 'react';
-import Hero from './Hero';
-
+import HomeSlider from '../Section/HomeSlider';
 import Campaigns from '../Section/Campaigns';
 import Banner from './Banner';
 import LiveCampaigns from '@/components/Section/LiveCampaigns';
 import Winners from './Winners';
 import HowPlay from './HowPlay';
+import HeroImage from '../../../public/images/hero.svg';
 import RaffleDraw from '@/components/Section/RaffleDraw';
 
-const Home = () => {
-  const [Products, setProducts] = useState(null);
-  const [isLoading, setLoading] = useState(true);
+import useFetcher from '@/lib/fetcher';
 
-  useEffect(() => {
-    setLoading(true);
-    async function fetchProducts() {
-      const res = await fetch('/api/products');
-      const json = await res.json();
-      setProducts(json);
-      setLoading(false);
-    }
-    fetchProducts();
-  }, []);
-  const getSigleDate = Products?.map(date => date.campaignEndDate);
+const Home = () => {
+  const { data, isLoading, isError } = useFetcher('products');
+
+  const getSigleDate = data?.map(date => date.campaignEndDate);
   return (
     <>
-      <Hero />
+      <HomeSlider img={HeroImage} />
       <RaffleDraw />
       <Campaigns
         slugProduct="/products"
         bg={'bg-transparent'}
-        data={Products}
+        data={data}
         btnHide="hidden"
+        isLoading={isLoading}
+        isError={isError}
       />
       <Banner />
       <LiveCampaigns
         daysToAdd={getSigleDate}
-        data={Products}
+        data={data}
         paddingTop="pt-20"
         slugProduct="/products"
+        isLoading={isLoading}
+        isError={isError}
       />
       <Winners />
       <HowPlay />

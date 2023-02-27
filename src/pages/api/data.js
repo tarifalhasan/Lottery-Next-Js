@@ -1,38 +1,77 @@
+// get dynamic date format
 import blogImage from '@/../public/images/blog.svg';
+import DesktopImage from '@/../public/images/dekstop.svg';
+// Create a new Date object
+const date = new Date();
 
-export default function handler(req, res) {
-  // get dynamic date format
+// Define an array of month names
+const months = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+];
 
-  // Create a new Date object
-  const date = new Date();
+// Extract the month, day, and year from the Date object
+const month = months[date.getMonth()];
+const day = date.getDate();
+const year = date.getFullYear();
 
-  // Define an array of month names
-  const months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ];
+// Combine the parts into a formatted date string
+const formattedDate = `${month} ${day}, ${year}`;
 
-  // Extract the month, day, and year from the Date object
-  const month = months[date.getMonth()];
-  const day = date.getDate();
-  const year = date.getFullYear();
+export default {
+  Products: [
+    {
+      title: 'Apple macbook pro m2',
+      price: '$65.35',
+      tarif: 'tarif',
+      productImage: DesktopImage,
+      campaignEndDate: 5,
+      descripetion: `Lorem Ipsum is simply dummy text of the printing an type setting industry. Lorem Ipsum has been the industry known printer took and scrambled it make type specimen book. and built in an automated factory with state-of-the-art equipment, our electric motors are a testament to our focus on perfection. These electric motors are incredibly compatible and can work with different types of tower fans, exhaust fans, and coolers among other devices.Lorem Ipsum is simply dummy text of the printing an type setting industry. Lorem Ipsum has been the industry known printer took and scrambled it make a type specimen book. and built in an automated factory with state-of-the-art equipment, our electric motors are a testament to our focus on perfection. These electric motors are incredibly compatible and can work with different types of tower fans, exhaust fans, and coolers among other devices.`,
 
-  // Combine the parts into a formatted date string
-  const formattedDate = `${month} ${day}, ${year}`;
+      slug: 'apple-macbook-pro-m2',
+    },
+    {
+      title: 'Apple macbook pro m2',
+      price: '$65.35',
+      tarif: 'tarif',
+      productImage: DesktopImage,
+      campaignEndDate: 6,
+      descripetion: `Lorem Ipsum is simply dummy text of the printing an type setting industry. Lorem Ipsum has been the industry known printer took and scrambled it make type specimen book. and built in an automated factory with state-of-the-art equipment, our electric motors are a testament to our focus on perfection. These electric motors are incredibly compatible and can work with different types of tower fans, exhaust fans, and coolers among other devices.Lorem Ipsum is simply dummy text of the printing an type setting industry. Lorem Ipsum has been the industry known printer took and scrambled it make a type specimen book. and built in an automated factory with state-of-the-art equipment, our electric motors are a testament to our focus on perfection. These electric motors are incredibly compatible and can work with different types of tower fans, exhaust fans, and coolers among other devices.`,
 
-  // Output the formatted date
-  console.log(formattedDate);
-  const blogPost = [
+      slug: 'apple-macbook-pro-m2',
+    },
+    {
+      title: 'Apple macbook pro air',
+      price: '$75.35',
+      tarif: 'tarif',
+      productImage: DesktopImage,
+      campaignEndDate: 14,
+      descripetion: `Lorem Ipsum is simply dummy text of the printing an type setting industry. Lorem Ipsum has been the industry known printer took and scrambled it make type specimen book. and built in an automated factory with state-of-the-art equipment, our electric motors are a testament to our focus on perfection. These electric motors are incredibly compatible and can work with different types of tower fans, exhaust fans, and coolers among other devices.Lorem Ipsum is simply dummy text of the printing an type setting industry. Lorem Ipsum has been the industry known printer took and scrambled it make a type specimen book. and built in an automated factory with state-of-the-art equipment, our electric motors are a testament to our focus on perfection. These electric motors are incredibly compatible and can work with different types of tower fans, exhaust fans, and coolers among other devices.`,
+
+      slug: 'apple-macbook-pro-air',
+    },
+    {
+      title: 'Apple macbook pro tarif',
+      price: '$3615.35',
+      tarif: 'tarif',
+      productImage: DesktopImage,
+      campaignEndDate: 16,
+      descripetion: `Lorem Ipsum is simply dummy text of the printing an type setting industry. Lorem Ipsum has been the industry known printer took and scrambled it make type specimen book. and built in an automated factory with state-of-the-art equipment, our electric motors are a testament to our focus on perfection. These electric motors are incredibly compatible and can work with different types of tower fans, exhaust fans, and coolers among other devices.Lorem Ipsum is simply dummy text of the printing an type setting industry. Lorem Ipsum has been the industry known printer took and scrambled it make a type specimen book. and built in an automated factory with state-of-the-art equipment, our electric motors are a testament to our focus on perfection. These electric motors are incredibly compatible and can work with different types of tower fans, exhaust fans, and coolers among other devices.`,
+
+      slug: 'apple-macbook-pro-tarif',
+    },
+  ],
+  Blogs: [
     {
       title: 'How to Write a Great Resume for a Job in 2022',
       featuresImage: blogImage,
@@ -169,7 +208,5 @@ export default function handler(req, res) {
         },
       ],
     },
-  ];
-
-  res.status(200).json(blogPost);
-}
+  ],
+};

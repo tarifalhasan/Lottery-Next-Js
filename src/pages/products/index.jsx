@@ -1,25 +1,20 @@
 import { useState, useEffect } from 'react';
 import Campaigns from '@/components/Section/Campaigns';
 import LiveCampaigns from '@/components/Section/LiveCampaigns';
+import useFetcher from '@/lib/fetcher';
 const Produts = () => {
-  const [Products, setProducts] = useState(null);
-  const [isLoading, setLoading] = useState(true);
-
-  useEffect(() => {
-    setLoading(true);
-    async function fetchProducts() {
-      const res = await fetch('/api/products');
-      const json = await res.json();
-      setProducts(json);
-      setLoading(false);
-    }
-    fetchProducts();
-  }, []);
+  const { data, isLoading, isError } = useFetcher('products');
 
   return (
     <div className="main-container">
-      <Campaigns btnBg={'bg-[#01A8FF]'} data={Products} />
-      <LiveCampaigns />
+      <Campaigns
+        btnBg={'bg-[#01A8FF]'}
+        slugProduct="/products"
+        data={data}
+        isError={isError}
+        isLoading={isLoading}
+      />
+      <LiveCampaigns data={data} />
     </div>
   );
 };

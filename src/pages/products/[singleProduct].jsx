@@ -1,56 +1,38 @@
 import CampaignEnds from '@/components/ui/CampaignEnds';
 import NumberOfProduct from '@/components/ui/NumberOfProduct';
 import AddToCartBtn from '@/components/ui/AddToCartBtn';
-import { useRouter } from 'next/router';
-import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import LiveCampaigns from '@/components/Section/LiveCampaigns';
 import Ticket from '@/components/Section/Ticket';
-const SingleProduct = () => {
-  const [Product, setProduct] = useState();
-  const [Products, setProducts] = useState();
+import { getProducts } from '@/lib/fetchData';
+import useFetcher from '@/lib/fetcher';
 
-  const [isLoading, setLoading] = useState(false);
-  // console.log(Product);
-  const router = useRouter();
-  const { singleProduct } = router.query;
-  useEffect(() => {
-    setLoading(true);
-    async function fetchProducts() {
-      const res = await fetch('/api/products');
-      const Products = await res.json();
-      setProducts(Products);
-      const product = Products?.find(p => p.slug === singleProduct);
-
-      setProduct(product);
-    }
-    fetchProducts();
-  }, [singleProduct]);
-
+const SingleProduct = ({ product }) => {
+  const { data, isError, isLoading } = useFetcher('products');
   return (
     <div className="main-container lg:px-10">
       <div className="flex flex-col items-center gap-4 lg:flex-row gap-y-3 pt-10">
         <div className="basis-[50%]">
           <h2 className="text-[2.8em] leading-[190%] text-[#464848]">
-            {Product?.title}
+            {product.title || 'unknown product'}
           </h2>
           <div className="w-full lg:w-[70%]">
-            <CampaignEnds daysToAdd={Product?.campaignEndDate} />
+            <CampaignEnds daysToAdd={product?.campaignEndDate} />
           </div>
 
           <div className="bg-[#01A8FF0D] rounded-xl p-6 mt-10">
             <Ticket />
           </div>
           <div className="flex flex-col md:flex-row gap-5 mt-10 items-center">
-            <NumberOfProduct price={Product?.price} />
+            <NumberOfProduct price={product?.price || 'unknown product'} />
             <AddToCartBtn />
           </div>
         </div>
         <div className="bg-[#F6F6F6] basis-[50%]  pt-3 w-full px-4 lg:px-16 my-10 lg:mt-32 rounded-[15px]">
           <Image
-            src={Product?.productImage.src}
-            alt={Product?.title}
+            src={product.productImage.src || '/'}
+            alt={product.title || 'unknown product'}
             width={400}
             height={400}
             className="block mx-auto py-16"
@@ -62,7 +44,7 @@ const SingleProduct = () => {
           Product Details
         </h3>
         <article className="text-[#434648] py-2 font-normal leading-[160%] text-[1.3em]">
-          {Product?.descripetion}
+          {product?.descripetion || 'Unknown Product'}
         </article>
         <Link
           className="text-lg font-normal text-[#000] leading-[140%]"
@@ -71,9 +53,41 @@ const SingleProduct = () => {
           Read More +
         </Link>
       </div>
-      {/* Live compaign */}
-      <LiveCampaigns slugProduct="/products" data={Products} />
+      {/* Live campaign */}
+      <LiveCampaigns
+        slugProduct="/products"
+        isError={isError}
+        isLoading={isLoading}
+        data={data}
+      />
     </div>
   );
 };
+
 export default SingleProduct;
+
+export async function getStaticProps({ params }) {
+  const product = await getProducts(params.singleProduct);
+  return {
+    props: {
+      product, // pass product object as a property of the props object
+    },
+  };
+}
+
+// Generates `/products/[singleProduct]` for each product post
+export async function getStaticPaths() {
+  const products = await getProducts();
+  const paths = products.map(value => {
+    return {
+      params: {
+        singleProduct: value.slug, // change `product` to `singleProduct`
+      },
+    };
+  });
+
+  return {
+    paths,
+    fallback: false,
+  };
+}
