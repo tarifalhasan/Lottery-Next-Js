@@ -31,8 +31,8 @@ const SingleProduct = ({ product }) => {
         </div>
         <div className="bg-[#F6F6F6] basis-[50%]  pt-3 w-full px-4 lg:px-16 my-10 lg:mt-32 rounded-[15px]">
           <Image
-            src={product.productImage.src || '/'}
-            alt={product.title || 'unknown product'}
+            src={product.mediaUrl || '/'}
+            alt={product.name || 'unknown product'}
             width={400}
             height={400}
             className="block mx-auto py-16"
@@ -44,7 +44,7 @@ const SingleProduct = ({ product }) => {
           Product Details
         </h3>
         <article className="text-[#434648] py-2 font-normal leading-[160%] text-[1.3em]">
-          {product?.descripetion || 'Unknown Product'}
+          {product?.description || 'Unknown Product'}
         </article>
         <Link
           className="text-lg font-normal text-[#000] leading-[140%]"

@@ -40,9 +40,9 @@ const LiveCampaigns = ({
                   <div className="bg-[#F6F7F9] h-full self-stretch lg:col-span-2 relative mb-5 py-10 px-4 flex rounded-lg justify-center">
                     <Link href={`${slugProduct}/${item.slug}`}>
                       <Image
-                        src={item.productImage.src}
-                        alt={item.title}
-                        className="w-full object-center"
+                        src={item.mediaUrl || '/'}
+                        alt={item.name}
+                        className="w-full object-center h-40"
                         width={200}
                         height={200}
                       />
@@ -50,7 +50,7 @@ const LiveCampaigns = ({
                     <div className="absolute top-2 left-0">
                       <Image
                         src="/images/win-gaurantee.svg"
-                        alt={item.title}
+                        alt={item.name}
                         width={40}
                         height={25}
                       />
@@ -59,11 +59,14 @@ const LiveCampaigns = ({
                   <div className=" order-3 lg:order-2 pt-10 lg:col-span-3 flex flex-col items-stretch self-stretch justify-between mt-10 lg:mt-0">
                     <span className="text-xl text-[#464848] font-semibold mb-4 lg:mb-8 block">
                       <Link href={`${slugProduct}/${item.slug}`}>
-                        {item.title}
+                        {item.name}
                       </Link>
                     </span>
                     {/* coute prosuct price */}
-                    <NumberOfProduct price={item.price} />
+                    <NumberOfProduct
+                      campaign={item.campaign}
+                      price={item.price}
+                    />
                     <div className="flex flex-row  w-full gap-2">
                       <div className="w-full">
                         <button className="flex w-full px-2 cursor-pointer justify-center border py-2.5 rounded-full">
@@ -110,24 +113,29 @@ const LiveCampaigns = ({
                         <div>
                           <Image
                             src={ShareIcon}
-                            alt={item.title}
+                            alt={item.name}
                             width={30}
                             height={30}
                           />
                         </div>
                         <div>
-                          <Image src={LikeIcon} alt="" width={30} height={30} />
+                          <Image
+                            src={LikeIcon}
+                            alt="linkfgf"
+                            width={30}
+                            height={30}
+                          />
                         </div>
                       </div>
                     </div>
                     <div className="flex self-end items-end h-full gap-x-7 ">
                       {/* Combain coute down  */}
-                      <CampaignEnds daysToAdd={item?.campaignEndDate} />
+                      <CampaignEnds daysToAdd={item?.campaign} />
                       <div className=" hidden lg:flex items-end gap-x-2">
                         <div className="min-w-[30px]">
                           <Image
                             src={ShareIcon}
-                            alt={item.title}
+                            alt={item.name}
                             width={30}
                             height={30}
                           />
@@ -135,7 +143,7 @@ const LiveCampaigns = ({
                         <div className="min-w-[30px]">
                           <Image
                             src={LikeIcon}
-                            alt={item.title}
+                            alt={item.name}
                             width={30}
                             height={30}
                           />

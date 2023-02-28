@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import AddToCartBtn from '@/components/ui/AddToCartBtn';
-import AwesomeButton from '@/components/ui/Button';
+
 import Spinner from './Spinner';
 import Error from '../common/404';
 
@@ -23,7 +23,7 @@ const Campaigns = ({
   if (isError) {
     return <Error />;
   }
-
+  console.log(data);
   return (
     <div className={`w-full ${bg} `} id="compaigns">
       <div className="main-container pt-20 ">
@@ -58,17 +58,18 @@ const Campaigns = ({
                   </div>
                   <Link href={`${slugProduct}/${item.slug}`}>
                     <Image
-                      src={item.productImage.src || '/'}
-                      alt={item.title}
+                      src={item.mediaUrl || '/'}
+                      alt={item.name}
                       width={200}
                       height={200}
+                      className=" object-cover h-28"
                     />
                   </Link>
                 </div>
                 <div className="flex justify-between mb-5">
                   <Image
                     src="/images/win.svg"
-                    alt={item.title}
+                    alt={item.name}
                     width={25}
                     height={20}
                   />
@@ -80,10 +81,10 @@ const Campaigns = ({
                   href={`${slugProduct}/${item.slug}`}
                   className="text-xl text-[#464848] font-medium mb-4 block"
                 >
-                  {item.title || 'Unknown Product'}
+                  {item.name || 'Unknown Product'}
                 </Link>
                 <h3 className="text-2xl text-center text-[#464848] font-semibold mb-8">
-                  {item.price || 'Unknown Product'}
+                  {`$${item.price}` || 'Unknown Product'}
                 </h3>
                 <div className="flex items-center justify-center ">
                   <AddToCartBtn onClick={() => handleAddToCart(item)} />

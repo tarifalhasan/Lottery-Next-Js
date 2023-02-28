@@ -18,7 +18,7 @@ const NumberOfProduct = ({ price }) => {
       <div>
         <div className="self-center flex">
           <h3 className="text-2xl text-center text-[#464848] font-semibold  ">
-            {price}
+            ${price}
           </h3>
         </div>
       </div>
