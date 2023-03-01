@@ -1,5 +1,7 @@
 import mongoose from 'mongoose';
 
+mongoose.set('strictQuery', false);
+
 const MONGODB_URI = process.env.MONGODB_URI;
 
 if (!MONGODB_URI) {
@@ -23,7 +25,6 @@ async function dbConnect() {
     const options = {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      strictQuery: false,
     };
     cached.promise = mongoose.connect(MONGODB_URI, options).then(mongoose => {
       return mongoose;
