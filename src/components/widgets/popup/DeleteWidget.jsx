@@ -1,8 +1,31 @@
-import React from 'react';
-import { AiTwotoneDelete, AiTwotoneEdit, AiOutlinePlus } from 'react-icons/ai';
-import { HiOutlineExclamationCircle } from 'react-icons/hi2';
+import { AiTwotoneDelete } from 'react-icons/ai';
+import { useState } from 'react';
+import { CircularProgress } from '@mui/material';
 import Popup from 'reactjs-popup';
-const DeleteWidget = () => {
+const DeleteWidget = ({ productSlug }) => {
+  const [loading, setLoading] = useState(false); // add loading state
+
+  // Delete product handler
+  const handleDelete = async productSlug => {
+    console.log(productSlug);
+    try {
+      setLoading(true); // set loading state to true
+
+      const res = await fetch(`/api/products/${productSlug}`, {
+        method: 'DELETE',
+      });
+      const data = await res.json();
+      setLoading(false); // set loading state to false
+
+      if (res.ok) {
+        // delete was successful, update state or do something else
+      } else {
+        // handle the error
+      }
+    } catch (error) {
+      // handle network errors or other exceptions
+    }
+  };
   return (
     <>
       <Popup
@@ -11,7 +34,7 @@ const DeleteWidget = () => {
             <AiTwotoneDelete /> <span>Delete</span>
           </button>
         }
-        position="top left"
+        position="top center"
       >
         {close => (
           <div>
@@ -62,8 +85,10 @@ const DeleteWidget = () => {
                       data-modal-hide="popup-modal"
                       type="button"
                       className="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+                      onClick={() => handleDelete(productSlug.slug)}
                     >
-                      Yes, Im sure
+                      {loading && <CircularProgress color="success" />} Yes, Im
+                      sure
                     </button>
                     <button
                       data-modal-hide="popup-modal"

@@ -1,20 +1,26 @@
 import { useState, useRef } from 'react';
 import Layout from '@/components/dashboard/Layout';
-
+import { Pagination } from '@mui/material';
 import 'reactjs-popup/dist/index.css';
 
 import useFetcher from '@/lib/fetcher';
-import { AiTwotoneEdit, AiOutlinePlus } from 'react-icons/ai';
+import { AiTwotoneEdit } from 'react-icons/ai';
 
 import Image from 'next/image';
 import DeleteWidget from '@/components/widgets/popup/DeleteWidget';
 import CreateNewProductModal from '@/components/widgets/modals/CreateNewProductModal';
+import UpdateProduct from '@/components/widgets/modals/UpdateProduct';
 const CreateNewProduct = () => {
-  const products = useFetcher('products');
+  const allProducts = useFetcher('products');
   const [open, setOpen] = useState(false);
   const myRef = useRef(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  console.log(open);
+  const [currentPage, setCurrentPage] = useState(1);
+  const CARDS_PER_PAGE = 8;
+  const totalPages = Math.ceil(allProducts.data?.length / CARDS_PER_PAGE);
+  const handlePageChange = (event, value) => {
+    setCurrentPage(value);
+  };
+
   return (
     <Layout>
       {/* Modal toggle */}
@@ -33,34 +39,43 @@ const CreateNewProduct = () => {
 
         {/* =====--- All Products --- ==== */}
         <div className="bg-white p-5 grid gap-4 grid-cols-4">
-          {products.data?.map(product => (
-            <div
-              key={product._id}
-              className="max-w-sm  p-4 border border-slate-200 rounded-md max-h-64 h-64"
-            >
-              <Image
-                src={product.mediaUrl || '/'}
-                alt={product.name}
-                width={200}
-                height={200}
-                className=" object-cover w-full h-28"
-              />
-              <h5 className="text-xl font-serif font-medium  text-gray-900 dark:text-white">
-                {product.name}
-              </h5>
-              <h4 className="text-2xl font-serif font-bold  text-gray-900 dark:text-white">
-                {product.price}$
-              </h4>
-              <div className="flex justify-between">
-                <button className="py-1 flex items-center px-5 border border-slate-100">
-                  <AiTwotoneEdit /> <span>Edit</span>
-                </button>
-                {/* Delete Button Widget */}
-                <DeleteWidget />
+          {allProducts.data
+            ?.slice(
+              (currentPage - 1) * CARDS_PER_PAGE,
+              currentPage * CARDS_PER_PAGE
+            )
+            .map(product => (
+              <div
+                key={product._id}
+                className="max-w-sm  p-4 border border-slate-200 rounded-md max-h-64 h-64"
+              >
+                <Image
+                  src={product.mediaUrl || '/'}
+                  alt={product.name}
+                  width={200}
+                  height={200}
+                  className=" object-cover w-full h-28"
+                />
+                <h5 className="text-base mt-2 font-serif font-medium  text-gray-900 ">
+                  {product.name}
+                </h5>
+                <h4 className="text-2x py-3 font-serif font-bold  text-gray-900 ">
+                  {product.price}$
+                </h4>
+                <div className="flex justify-between">
+                  <UpdateProduct product={product} />
+                  {/* Delete Button Widget */}
+                  <DeleteWidget productSlug={product} />
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
+        <Pagination
+          count={totalPages}
+          page={currentPage}
+          onChange={(event, value) => setCurrentPage(value)}
+          color="primary"
+        />
       </div>
     </Layout>
   );

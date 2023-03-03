@@ -3,11 +3,11 @@ import Popup from 'reactjs-popup';
 import Progress from '@/components/widgets/Progress/Progress';
 import { Alert } from '@mui/material';
 
-import { AiOutlinePlus } from 'react-icons/ai';
-import Successfull from '../Toast/Successfull';
+import { AiTwotoneEdit } from 'react-icons/ai';
+
 import ErrorToast from '../Toast/ErrorToast';
 
-const CreateNewProductModal = () => {
+const UpdateProduct = ({ product }) => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
@@ -26,42 +26,37 @@ const CreateNewProductModal = () => {
   }
 
   // handle submit event
-
   const handleSubmit = async e => {
     e.preventDefault();
-    const slug = await createSlug(name);
     setLoading(true);
-    try {
-      const mediaUrl = await imageUpload();
-      const res = await fetch(`/api/products`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          name,
-          price,
-          mediaUrl,
-          description,
-          campaign,
-          category,
-          slug,
-        }),
-      });
-      const data = await res.json();
-      if (res.ok) {
-        setLoading(false);
-        setSuccess(true);
-      } else {
-        setLoading(false);
-        setSuccess(false);
-        window.alert(`Product upload failed: ${data.error}`);
-      }
-    } catch (err) {
-      console.log(err);
+
+    const slug = await createSlug(name);
+    let mediaUrl = product.mediaUrl;
+    if (media) {
+      mediaUrl = await imageUpload();
+    }
+    const res = await fetch(`/api/products/${product.slug}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name,
+        price,
+        mediaUrl,
+        description,
+        campaign,
+        category,
+        slug,
+      }),
+    });
+    const data = await res.json();
+    if (res.ok) {
+      setLoading(false);
+      setSuccess(true);
+    } else {
       setLoading(false);
       setSuccess(false);
-      window.alert('Product upload failed');
     }
   };
 
@@ -86,11 +81,8 @@ const CreateNewProductModal = () => {
     <div>
       <Popup
         trigger={
-          <button
-            className=" text-white flex items-center bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-[1em] px-5 py-2 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-            type="button"
-          >
-            <AiOutlinePlus /> <span>Create product</span>
+          <button className="py-1 flex items-center px-5 border border-slate-100">
+            <AiTwotoneEdit /> <span>Edit</span>
           </button>
         }
         modal
@@ -129,7 +121,6 @@ const CreateNewProductModal = () => {
                     id="name"
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
                     placeholder="Type product name"
-                    required
                     onChange={e => setName(e.target.value)}
                   />
                 </div>
@@ -147,7 +138,6 @@ const CreateNewProductModal = () => {
                     name="campaign"
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
                     placeholder="Add Campaign"
-                    required
                   />
                 </div>
                 <div>
@@ -164,7 +154,6 @@ const CreateNewProductModal = () => {
                     id="price"
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
                     placeholder="$2999"
-                    required
                   />
                 </div>
                 <div>
@@ -225,7 +214,7 @@ const CreateNewProductModal = () => {
                 className="text-white mt-2 inline-flex items-center bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-xs px-5 py-2 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
               >
                 {loading ? <Progress /> : ''}
-                Add new product
+                Update product
               </button>
             </form>
           </div>
@@ -235,4 +224,4 @@ const CreateNewProductModal = () => {
   );
 };
 
-export default CreateNewProductModal;
+export default UpdateProduct;

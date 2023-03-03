@@ -3,7 +3,7 @@ import Campaigns from '@/components/Section/Campaigns';
 import LiveCampaigns from '@/components/Section/LiveCampaigns';
 import useFetcher from '@/lib/fetcher';
 import Layout from '@/components/Layout/Layout';
-const Produts = () => {
+const Produts = ({ products }) => {
   const { data, isLoading, isError } = useFetcher('products');
 
   return (
@@ -23,3 +23,13 @@ const Produts = () => {
 };
 
 export default Produts;
+
+// export async function getStaticProps() {
+//   const res = await fetch(`http://localhost:3000/api/products`);
+//   const data = await res.json();
+//   return {
+//     props: {
+//       products: data,
+//     },
+//   };
+// }
