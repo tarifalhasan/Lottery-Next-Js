@@ -8,6 +8,13 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+@layer base {
+  html,
+  body {
+    @apply h-full;
+  }
+}
 body {
   font-family: 'Roboto', sans-serif;
 }
@@ -362,4 +369,9 @@ body {
 
 .button-grid button.selected {
   background-color: red;
+}
+[role='tooltip'].popup-content {
+  width: auto !important;
+  box-shadow: 0 0 3px rgb(0 0 0 / 16%);
+  border-radius: 5px;
 }

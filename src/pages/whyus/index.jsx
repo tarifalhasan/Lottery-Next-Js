@@ -1,5 +1,6 @@
 import HomeSlider from '@/components/Section/HomeSlider';
 import Campaigns from '@/components/Section/Campaigns';
+import Layout from '@/components/Layout/Layout';
 import whyUsImage from '@/../public/images/why-us.svg';
 import HowPlay from '@/components/Section/HowPlay';
 import WhyChooseUs from '@/components/Section/WhyChooseUs';
@@ -19,7 +20,7 @@ const WhyUs = () => {
     fetchProducts();
   }, []);
   return (
-    <>
+    <Layout>
       <HomeSlider img={whyUsImage} />
       <HowPlay />
       <Campaigns
@@ -30,7 +31,7 @@ const WhyUs = () => {
         slugProduct="/products"
       />
       <WhyChooseUs />
-    </>
+    </Layout>
   );
 };
 
