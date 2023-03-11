@@ -7,7 +7,7 @@ import LiveCampaigns from '@/components/Section/LiveCampaigns';
 import Ticket from '@/components/Section/Ticket';
 import getProducts from '@/lib/api/products';
 import Layout from '@/components/Layout/Layout';
-
+import baseUrl from '@/helper/baseUri';
 const SingleProduct = ({ product, products, isError, isLoading }) => {
   return (
     <Layout>
@@ -73,7 +73,7 @@ export default SingleProduct;
 // Get One Product
 export async function getServerSideProps({ query }) {
   const { singleProduct } = query;
-  const baseUrl = 'https://lottery-next-js.vercel.app';
+
   let data = {};
   let products = [];
   let isError = false;

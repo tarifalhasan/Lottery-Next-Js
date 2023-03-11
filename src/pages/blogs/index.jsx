@@ -1,5 +1,5 @@
 import RaffleDraw from '@/components/Section/RaffleDraw';
-
+import baseUrl from '@/helper/baseUri';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -95,7 +95,6 @@ const BlogPage = ({ blogs, isError, isLoading }) => {
 export default BlogPage;
 
 export async function getServerSideProps() {
-  const baseUrl = 'https://lottery-next-js.vercel.app';
   let blogs = [];
   let isError = false;
   let isLoading = true;

@@ -1,6 +1,5 @@
 // hit url api/
-
-const baseUrl = 'https://lottery-next-js.vercel.app/';
+import baseUrl from '@/helper/baseUri';
 
 const getProducts = async () => {
   const res = await fetch(`${baseUrl}/api/products`);

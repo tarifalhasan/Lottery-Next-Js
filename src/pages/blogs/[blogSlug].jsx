@@ -7,7 +7,7 @@ import Spinner from '@/components/Section/Spinner';
 import Error from '@/components/common/404';
 import getProducts from '@/lib/api/products';
 import Layout from '@/components/Layout/Layout';
-
+import baseUrl from '@/helper/baseUri';
 // stop eslint next line
 
 const SingleBlog = ({ blog, isError, isLoading, products }) => {
@@ -103,7 +103,7 @@ export async function getServerSideProps({ query }) {
   let isError = false;
   let isLoading = true;
   let products = [];
-  const baseUrl = 'https://lottery-next-js.vercel.app/';
+
   try {
     const res = await fetch(`${baseUrl}/api/blogs/${blogSlug}`);
     blog = await res.json();

@@ -2,7 +2,7 @@ import Head from 'next/head';
 
 import MainPage from '@/components/Home';
 import Layout from '@/components/Layout/Layout';
-
+import baseUrl from '@/helper/baseUri';
 export default function HomePage({ products, isError, isLoding }) {
   return (
     <>
@@ -20,7 +20,6 @@ export default function HomePage({ products, isError, isLoding }) {
 }
 
 export async function getServerSideProps(context) {
-  const baseUrl = 'https://lottery-next-js.vercel.app';
   let products = [];
   let isError = false;
   let isLoding = true;
