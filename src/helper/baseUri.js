@@ -1,5 +1,3 @@
-const baseUrl =
-  process.env.NODE_ENV === 'production'
-    ? 'https://tarifecommerce.vercel.app'
-    : 'http://localhost:3000';
+const baseUrl = 'https://tarifecommerce2.vercel.app';
+
 export default baseUrl;
