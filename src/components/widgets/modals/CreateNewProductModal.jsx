@@ -4,7 +4,7 @@ import Progress from '@/components/widgets/Progress/Progress';
 import { Alert } from '@mui/material';
 
 import { AiOutlinePlus } from 'react-icons/ai';
-import Successfull from '../Toast/Successfull';
+
 import ErrorToast from '../Toast/ErrorToast';
 
 const CreateNewProductModal = () => {

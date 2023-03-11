@@ -14,7 +14,7 @@ export const navLinks = [
   },
   {
     name: 'Blog',
-    link: '/blog',
+    link: '/blogs',
   },
 ];
 

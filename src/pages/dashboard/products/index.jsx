@@ -2,24 +2,35 @@ import { useState, useRef } from 'react';
 import Layout from '@/components/dashboard/Layout';
 import { Pagination } from '@mui/material';
 import 'reactjs-popup/dist/index.css';
-
-import useFetcher from '@/lib/fetcher';
-import { AiTwotoneEdit } from 'react-icons/ai';
-
 import Image from 'next/image';
 import DeleteWidget from '@/components/widgets/popup/DeleteWidget';
 import CreateNewProductModal from '@/components/widgets/modals/CreateNewProductModal';
 import UpdateProduct from '@/components/widgets/modals/UpdateProduct';
-const CreateNewProduct = () => {
-  const allProducts = useFetcher('products');
+import getProducts from '@/lib/api/products';
+import Spinner from '@/components/Section/Spinner';
+import Error from '@/components/common/404';
+const CreateNewProduct = ({ allProducts, isLoading, isError }) => {
   const [open, setOpen] = useState(false);
   const myRef = useRef(null);
   const [currentPage, setCurrentPage] = useState(1);
   const CARDS_PER_PAGE = 8;
-  const totalPages = Math.ceil(allProducts.data?.length / CARDS_PER_PAGE);
+  const totalPages = Math.ceil(allProducts?.length / CARDS_PER_PAGE);
   const handlePageChange = (event, value) => {
     setCurrentPage(value);
   };
+
+  if (isLoading) {
+    return (
+      <Layout>
+        <Spinner />
+      </Layout>
+    );
+  }
+  if (isError) {
+    <Layout>
+      <Error />
+    </Layout>;
+  }
 
   return (
     <Layout>
@@ -39,7 +50,7 @@ const CreateNewProduct = () => {
 
         {/* =====--- All Products --- ==== */}
         <div className="bg-white p-5 grid gap-4 grid-cols-4">
-          {allProducts.data
+          {allProducts
             ?.slice(
               (currentPage - 1) * CARDS_PER_PAGE,
               currentPage * CARDS_PER_PAGE
@@ -82,3 +93,25 @@ const CreateNewProduct = () => {
 };
 
 export default CreateNewProduct;
+
+export async function getStaticProps(context) {
+  let allProducts = [];
+  let isError = false;
+  let isLoading = true;
+
+  try {
+    allProducts = await getProducts();
+  } catch (error) {
+    isError = true;
+  } finally {
+    isLoading = false;
+  }
+
+  return {
+    props: {
+      allProducts,
+      isLoading,
+      isError,
+    }, // will be passed to the page component as props
+  };
+}

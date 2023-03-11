@@ -2,20 +2,25 @@ import RaffleDraw from '@/components/Section/RaffleDraw';
 
 import Image from 'next/image';
 import Link from 'next/link';
-import useFetcher from '@/lib/fetcher';
+
 import Spinner from '@/components/Section/Spinner';
 import Error from '@/components/common/404';
 import Layout from '@/components/Layout/Layout';
 
-const BlogPage = () => {
-  const { data, isLoading, isError } = useFetcher('blogs');
-
-  if (isLoading) {
-    return <Spinner />;
-  }
-
+const BlogPage = ({ blogs, isError, isLoading }) => {
   if (isError) {
-    return <Error />;
+    return (
+      <Layout>
+        <Error />;
+      </Layout>
+    );
+  }
+  if (isLoading) {
+    return (
+      <Layout>
+        <Spinner />;
+      </Layout>
+    );
   }
 
   return (
@@ -28,7 +33,7 @@ const BlogPage = () => {
         </div>
         <main className="main-container py-20">
           <div className="blog place-items-center gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
-            {data?.map(blog => (
+            {blogs?.map(blog => (
               <div key={blog.slug}>
                 <div className="features_image">
                   <Image
@@ -56,7 +61,7 @@ const BlogPage = () => {
                   </p>
                   <div>
                     <Link
-                      href={`blog/${blog.slug}`}
+                      href={`blogs/${blog.slug}`}
                       className="flex items-center gap-x-1 text-[#01A8FF]"
                     >
                       <span>Read More</span>
@@ -88,3 +93,25 @@ const BlogPage = () => {
 };
 
 export default BlogPage;
+
+export async function getServerSideProps() {
+  const baseUrl = process.env.BASE_URL;
+  let blogs = [];
+  let isError = false;
+  let isLoading = true;
+  try {
+    const res = await fetch(`${baseUrl}/api/blogs`);
+    blogs = await res.json();
+  } catch (error) {
+    isError = true;
+  } finally {
+    isLoading = false;
+  }
+  return {
+    props: {
+      blogs: blogs,
+      isError: isError,
+      isLoading: isLoading,
+    },
+  };
+}

@@ -7,12 +7,7 @@ import HowPlay from './HowPlay';
 import HeroImage from '../../../public/images/hero.svg';
 import RaffleDraw from '@/components/Section/RaffleDraw';
 
-import useFetcher from '@/lib/fetcher';
-
-const Home = () => {
-  const { data, isLoading, isError } = useFetcher('products');
-
-  const getSigleDate = data?.map(date => date.campaignEndDate);
+const MainPage = ({ products, isLoding, isError }) => {
   return (
     <>
       <HomeSlider img={HeroImage} />
@@ -20,18 +15,17 @@ const Home = () => {
       <Campaigns
         slugProduct="/products"
         bg={'bg-transparent'}
-        data={data}
+        data={products}
         btnHide="hidden"
-        isLoading={isLoading}
+        isLoading={isLoding}
         isError={isError}
       />
       <Banner />
       <LiveCampaigns
-        daysToAdd={getSigleDate}
-        data={data}
+        data={products}
         paddingTop="pt-20"
         slugProduct="/products"
-        isLoading={isLoading}
+        isLoading={isLoding}
         isError={isError}
       />
       <Winners />
@@ -40,4 +34,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default MainPage;

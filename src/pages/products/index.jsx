@@ -1,22 +1,19 @@
-import { useState, useEffect } from 'react';
 import Campaigns from '@/components/Section/Campaigns';
 import LiveCampaigns from '@/components/Section/LiveCampaigns';
-import useFetcher from '@/lib/fetcher';
-import Layout from '@/components/Layout/Layout';
-const Produts = ({ products }) => {
-  const { data, isLoading, isError } = useFetcher('products');
 
+import Layout from '@/components/Layout/Layout';
+const Produts = ({ products, isLoding, isError }) => {
   return (
     <Layout>
       <div className="main-container">
         <Campaigns
           btnBg={'bg-[#01A8FF]'}
           slugProduct="/products"
-          data={data}
+          data={products}
           isError={isError}
-          isLoading={isLoading}
+          isLoading={isLoding}
         />
-        <LiveCampaigns data={data} />
+        <LiveCampaigns data={products} />
       </div>
     </Layout>
   );
@@ -24,12 +21,26 @@ const Produts = ({ products }) => {
 
 export default Produts;
 
-// export async function getStaticProps() {
-//   const res = await fetch(`http://localhost:3000/api/products`);
-//   const data = await res.json();
-//   return {
-//     props: {
-//       products: data,
-//     },
-//   };
-// }
+export async function getServerSideProps(context) {
+  const baseUrl = process.env.BASE_URL;
+  let products = [];
+  let isError = false;
+  let isLoding = true;
+
+  try {
+    const res = await fetch(`${baseUrl}/api/products`);
+    products = await res.json();
+  } catch (error) {
+    isError = true;
+  } finally {
+    isLoding = false;
+  }
+
+  return {
+    props: {
+      products: products,
+      isLoding: isLoding,
+      isError: isError,
+    },
+  };
+}

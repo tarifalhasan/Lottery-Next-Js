@@ -1,9 +1,9 @@
 import Head from 'next/head';
 
-import Home from '@/components/Home';
+import MainPage from '@/components/Home';
 import Layout from '@/components/Layout/Layout';
 
-export default function HomePage() {
+export default function HomePage({ products, isError, isLoding }) {
   return (
     <>
       <Head>
@@ -13,8 +13,32 @@ export default function HomePage() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <Home />
+        <MainPage products={products} isError={isError} isLoding={isLoding} />
       </Layout>
     </>
   );
+}
+
+export async function getServerSideProps(context) {
+  const baseUrl = process.env.BASE_URL;
+  let products = [];
+  let isError = false;
+  let isLoding = true;
+
+  try {
+    const res = await fetch(`${baseUrl}/api/products`);
+    products = await res.json();
+  } catch (error) {
+    isError = true;
+  } finally {
+    isLoding = false;
+  }
+
+  return {
+    props: {
+      products: products,
+      isLoding: isLoding,
+      isError: isError,
+    },
+  };
 }

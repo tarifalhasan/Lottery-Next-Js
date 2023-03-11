@@ -12,6 +12,7 @@ import Error from '../common/404';
 const LiveCampaigns = ({
   paddingTop,
   data,
+
   slugProduct,
   isLoading,
   isError,

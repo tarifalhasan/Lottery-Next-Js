@@ -1,17 +1,16 @@
 import LiveCampaigns from '@/components/Section/LiveCampaigns';
 import CampaignHero from '@/components/Section/CampaignHero';
 import Layout from '@/components/Layout/Layout';
-import useFetcher from '@/lib/fetcher';
-const Campaigns = () => {
-  const { data, isError, isLoading } = useFetcher('products');
+
+const Campaigns = ({ products, isLoding, isError }) => {
   return (
     <Layout>
       <CampaignHero />
       <LiveCampaigns
         slugProduct="/products"
-        isLoading={isLoading}
+        isLoading={isLoding}
         isError={isError}
-        data={data}
+        data={products}
         paddingTop={'pt-24'}
       />
     </Layout>
@@ -19,3 +18,27 @@ const Campaigns = () => {
 };
 
 export default Campaigns;
+
+export async function getServerSideProps(context) {
+  const baseUrl = process.env.BASE_URL;
+  let products = [];
+  let isError = false;
+  let isLoding = true;
+
+  try {
+    const res = await fetch(`${baseUrl}/api/products`);
+    products = await res.json();
+  } catch (error) {
+    isError = true;
+  } finally {
+    isLoding = false;
+  }
+
+  return {
+    props: {
+      products: products,
+      isLoding: isLoding,
+      isError: isError,
+    },
+  };
+}
