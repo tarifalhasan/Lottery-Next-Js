@@ -73,7 +73,7 @@ export default SingleProduct;
 // Get One Product
 export async function getServerSideProps({ query }) {
   const { singleProduct } = query;
-  const baseUrl = 'https://lottery-next-js-ecommerce.vercel.app';
+  const baseUrl = 'https://lottery-next-js.vercel.app';
   let data = {};
   let products = [];
   let isError = false;

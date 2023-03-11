@@ -95,7 +95,7 @@ const BlogPage = ({ blogs, isError, isLoading }) => {
 export default BlogPage;
 
 export async function getServerSideProps() {
-  const baseUrl = 'https://lottery-next-js-ecommerce.vercel.app';
+  const baseUrl = 'https://lottery-next-js.vercel.app';
   let blogs = [];
   let isError = false;
   let isLoading = true;

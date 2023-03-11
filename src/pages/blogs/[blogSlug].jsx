@@ -103,7 +103,7 @@ export async function getServerSideProps({ query }) {
   let isError = false;
   let isLoading = true;
   let products = [];
-  const baseUrl = 'https://lottery-next-js-ecommerce.vercel.app';
+  const baseUrl = 'https://lottery-next-js.vercel.app/';
   try {
     const res = await fetch(`${baseUrl}/api/blogs/${blogSlug}`);
     blog = await res.json();
