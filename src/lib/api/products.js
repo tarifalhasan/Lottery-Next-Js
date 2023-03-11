@@ -1,6 +1,6 @@
 // hit url api/
 
-const baseUrl = process.env.BASE_URL;
+const baseUrl = 'https://lottery-next-js-ecommerce.vercel.app';
 
 const getProducts = async () => {
   const res = await fetch(`${baseUrl}/api/products`);

@@ -20,7 +20,7 @@ export default function HomePage({ products, isError, isLoding }) {
 }
 
 export async function getServerSideProps(context) {
-  const baseUrl = process.env.BASE_URL;
+  const baseUrl = 'https://lottery-next-js-ecommerce.vercel.app';
   let products = [];
   let isError = false;
   let isLoding = true;
